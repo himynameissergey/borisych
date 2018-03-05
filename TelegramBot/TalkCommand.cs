@@ -48,7 +48,7 @@ namespace TelegramBot
             }
 
             Random rnd = new Random();
-            int n = rnd.Next(linesCount+1);  // случайным образом выбираем фразу из файла     
+            int n = rnd.Next(linesCount);  // случайным образом выбираем фразу из файла     
             
             return lines[n];
         }

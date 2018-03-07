@@ -15,7 +15,6 @@ namespace TelegramBot
             string path = @"settings.txt";
             //string[] lines = new string[LinesCount];
             List<string> lines = new List<string>();
-            int i = 0;  // счетчик для цикла
             string str = "";
             try
             {

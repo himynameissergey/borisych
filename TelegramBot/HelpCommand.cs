@@ -25,6 +25,7 @@ namespace TelegramBot
             int messageId = message.MessageId;
 
             await client.SendTextMessageAsync(chatId, "Список всех команд:\n" + string.Join("\n", Bot.GetCommands.Select(cmd => cmd.Name)));
+            Bot.ConsoleWriteLog(message);
         }
     }
 }

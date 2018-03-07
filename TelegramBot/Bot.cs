@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot;
+using Telegram.Bot.Types;
 
 namespace TelegramBot
 {
@@ -36,10 +37,9 @@ namespace TelegramBot
             bot = new TelegramBotClient(lines[1]);
             commands.Add(new HelloCommand());
             commands.Add(new HelpCommand());
-            //commands.Add(new ShowCommand());
-            //commands.Add(new MyCommand());
             commands.Add(new BredCommand());
             commands.Add(new TalkCommand());
+            commands.Add(new ParseCommand());
             //commands.Add(new iButtonsCommand());
             //commands.Add(new rButtonsCommand());
         }
@@ -50,6 +50,10 @@ namespace TelegramBot
         //{
         //    return str.Substring(0, 1).ToUpper() + (str.Length > 1 ? str.Substring(1) : "");
         //}
+        public static void ConsoleWriteLog(Message message)
+        {
+            Console.WriteLine("" + DateTime.Now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+        }
         /// <summary>
         /// Запуск бота
         /// </summary>

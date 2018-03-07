@@ -21,6 +21,7 @@ namespace TelegramBot
             var messageId = message.MessageId;
             
             await client.SendTextMessageAsync(chatId, $"Привет! Меня зовут {BotSettings.Name}.\nВведи /help чтобы знать, что я умею)", replyToMessageId: messageId);
+            Bot.ConsoleWriteLog(message);
         }
     }
 }

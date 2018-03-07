@@ -30,19 +30,21 @@ namespace TelegramBot
                     if (nm <= 0 | nm > 10)
                     {
                         await client.SendTextMessageAsync(chatId, "Число должно быть от 1 до 10", replyToMessageId: messageId);
+                        Bot.ConsoleWriteLog(message);
                         return;
                     }
                     this.NumMessages = nm;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     await client.SendTextMessageAsync(chatId, "Неверный формат числа", replyToMessageId: messageId);
+                    Bot.ConsoleWriteLog(message);
                     return;
                 }
 
                 string s = bm.Generate(this.NumMessages);
                 await client.SendTextMessageAsync(chatId, s);//, replyToMessageId: messageId);
-                Console.WriteLine("" + now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+                Bot.ConsoleWriteLog(message);
             }
         }
 

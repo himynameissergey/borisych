@@ -12,12 +12,14 @@ namespace TelegramBot.ParserCore.Habra
         public string[] Parse(IHtmlDocument document)
         {
             var list = new List<string>();
-            //var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("post__title_link"));
-            var items = document.QuerySelectorAll("div").Where(item => item.ClassName != null && item.ClassName.Contains("text"));
+            //var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("post__title_link"));  //habr
+            //var items = document.QuerySelectorAll("div").Where(item => item.ClassName != null && item.ClassName.Contains("text"));    //nekdo
+            var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("orange")).OfType<IHtmlAnchorElement>(); //2ch
 
             foreach (var item in items)
             {
-                list.Add(item.TextContent);
+                //list.Add(item.TextContent);
+                list.Add("https://2ch.hk" + item.PathName);
             }
             return list.ToArray();
         }

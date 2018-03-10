@@ -18,8 +18,8 @@ namespace TelegramBot.ParserCore.Habra
 
             foreach (var item in items)
             {
-                //list.Add(item.TextContent);
-                list.Add("https://2ch.hk" + item.PathName);
+                //list.Add(item.TextContent);	//habr, nekdo
+                list.Add("https://2ch.hk" + item.PathName);	//2ch
             }
             return list.ToArray();
         }

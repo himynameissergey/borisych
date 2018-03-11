@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using TelegramBot.ParserCore;
-using TelegramBot.ParserCore.Habra;
 
 namespace TelegramBot
 {
@@ -17,6 +16,13 @@ namespace TelegramBot
         /// </summary>
         public string Name { get; set; } = "/2ch";
         public int CountArgs { get; set; } = 0;
+
+        //IParser<string[]> parser;
+        IParserSettings parserSettings;
+        HtmlLoader loader;
+        bool isActive;
+        public event Action<object, string[]> OnNewData;
+        public event Action<object> OnCompleted;
 
         //ParserWorker<string[]> parser;
         static List<string> anekdots = new List<string>();
@@ -30,11 +36,6 @@ namespace TelegramBot
             var chatId = message.Chat.Id;
             var messageId = message.MessageId;
 
-            //parser = new ParserWorker<string[]>(new HabraParser());
-            //parser.OnCompleted += Parser_OnCompleted;
-            //parser.OnNewData += Parser_OnNewData;
-            //parser.Settings = new HabraSettings(1, 1);  // первая страница сайта
-            //parser.Start();
             Random rnd = new Random();
             int r = rnd.Next(anekdots.Count);
             await client.SendTextMessageAsync(chatId, anekdots[r]);

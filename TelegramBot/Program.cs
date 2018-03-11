@@ -18,14 +18,16 @@ namespace TelegramBot
             Console.WindowWidth = 100;
             Console.Title = "Бот Борисыч для Telegram";
             Console.WriteLine(DateTime.Now+" Бот Борисыч запущен");
-            //------------- для парсинга --------------------------
+
+            #region For parsing           
             ParserWorker<string[]> parser;
             parser = new ParserWorker<string[]>(new HabraParser());
             parser.OnCompleted += ParseCommand.Parser_OnCompleted;
             parser.OnNewData += ParseCommand.Parser_OnNewData;
             parser.Settings = new HabraSettings(1, 1);  // первая страница сайта
             parser.Start();
-            //------------- для парсинга --------------------------
+            #endregion
+
             bot.RunAsync().Wait();
 
             Console.ReadKey();

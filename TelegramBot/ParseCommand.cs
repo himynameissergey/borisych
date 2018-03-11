@@ -30,13 +30,11 @@ namespace TelegramBot
             var chatId = message.Chat.Id;
             var messageId = message.MessageId;
 
-            //#region test
             //parser = new ParserWorker<string[]>(new HabraParser());
             //parser.OnCompleted += Parser_OnCompleted;
             //parser.OnNewData += Parser_OnNewData;
             //parser.Settings = new HabraSettings(1, 1);  // первая страница сайта
             //parser.Start();
-            //#endregion
 
             Random rnd = new Random();
             int r = rnd.Next(anekdots.Count);

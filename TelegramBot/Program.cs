@@ -40,8 +40,8 @@ namespace TelegramBot
         static void Get2chNews(object obj)
         {
             ParserWorker<string[]> parser = (ParserWorker<string[]>)obj;
+            Console.WriteLine("..:: Обновление новостей ::..\n" + DateTime.Now.ToLongTimeString());
             parser.Start();
-            //Console.WriteLine("Текущее время:  " + DateTime.Now.ToLongTimeString());
         }
     }
 }

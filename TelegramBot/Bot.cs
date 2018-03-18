@@ -52,7 +52,7 @@ namespace TelegramBot
         //}
         public static void ConsoleWriteLog(Message message)
         {
-            Console.WriteLine("" + DateTime.Now + " >> " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
+            Console.WriteLine("" + DateTime.Now + " >> " + message.From.Id + " " + message.From.LastName + " " + message.From.FirstName + " >> " + message.Text);
         }
         /// <summary>
         /// Запуск бота

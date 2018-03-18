@@ -15,7 +15,7 @@ namespace TelegramBot
         /// <summary>
         /// Имя команды
         /// </summary>
-        public string Name { get; set; } = "/2ch";
+        public string Name { get; set; } = "/lenta";
         public int CountArgs { get; set; } = 0;
 
         //ParserWorker<string[]> parser;
@@ -43,7 +43,7 @@ namespace TelegramBot
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
-            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/2ch"" ");
+            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/lenta"" ");
             Bot.ConsoleWriteLog(message);
         }
         public static void Parser_OnCompleted(object obj)

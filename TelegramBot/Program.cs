@@ -27,6 +27,7 @@ namespace TelegramBot
             parser.OnNewData += ParseCommand.Parser_OnNewData;
             parser.Settings = new HabraSettings(1, 1);  // первая страница сайта
             //parser.Start();   //при работе с таймером эту строчку закомментируем
+
             // устанавливаем метод обратного вызова
             TimerCallback tcb = new TimerCallback(Get2chNews);
             // создаем таймер

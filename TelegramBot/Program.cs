@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Telegram.Bot;
 using TelegramBot.ParserCore;
 using TelegramBot.ParserCore.Habra;
 
@@ -11,6 +12,7 @@ namespace TelegramBot
 {
     class Program
     {
+        static ParserWorker<string[]> parser;
         static void Main(string[] args)
         {
             Bot bot = new Bot();
@@ -18,21 +20,23 @@ namespace TelegramBot
             Console.WindowHeight = 10;
             Console.WindowWidth = 100;
             Console.Title = "Бот Борисыч для Telegram";
-            Console.WriteLine(DateTime.Now+" Бот Борисыч запущен");
+            Console.WriteLine(DateTime.Now + " Бот Борисыч запущен");
 
             #region For parsing           
-            ParserWorker<string[]> parser;
+            
             parser = new ParserWorker<string[]>(new HabraParser());
             parser.OnCompleted += ParseCommand.Parser_OnCompleted;
             parser.OnNewData += ParseCommand.Parser_OnNewData;
             parser.Settings = new HabraSettings(1, 1);  // первая страница сайта
             //parser.Start();   //при работе с таймером эту строчку закомментируем
-
-            // устанавливаем метод обратного вызова
-            TimerCallback tcb = new TimerCallback(Get2chNews);
+            TimerCallback tcb = new TimerCallback(Get2chNews);	// устанавливаем метод обратного вызова
             // создаем таймер
             Timer timer = new Timer(tcb, parser, 0, 3600000);   //будем получать новости каждый час
             #endregion
+
+            //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова
+            //// создаем таймер
+            //Timer timer2 = new Timer(tcb2, null, 0, 60000);   //будем получать новости каждый час
 
             bot.RunAsync().Wait();
             Console.ReadKey();
@@ -44,5 +48,14 @@ namespace TelegramBot
             Console.WriteLine("..:: Обновление новостей ::..\n" + DateTime.Now.ToLongTimeString());
             parser.Start();
         }
+        //static async void GetLentaNews(object obj)
+        //{
+        //    TelegramBotClient bot = new TelegramBotClient(BotSettings.Key);
+        //    Random rnd = new Random();
+        //    int r = rnd.Next(ParseCommand.anekdots.Count);
+        //    await bot.SendTextMessageAsync(-156934903, ParseCommand.anekdots[r]); //Chat.ID Группы Брянск 156934903
+        //    //Bot.ConsoleWriteLog(message);
+        //}
     }
 }
+

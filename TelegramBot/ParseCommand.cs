@@ -19,7 +19,7 @@ namespace TelegramBot
         public int CountArgs { get; set; } = 0;
 
         //ParserWorker<string[]> parser;
-        static List<string> anekdots = new List<string>();
+        public static List<string> anekdots = new List<string>();
         /// <summary>
         /// Вызывает команду
         /// </summary>
@@ -38,7 +38,7 @@ namespace TelegramBot
 
             Random rnd = new Random();
             int r = rnd.Next(anekdots.Count);
-            await client.SendTextMessageAsync(chatId, anekdots[r]);
+            await client.SendTextMessageAsync(-156934903, anekdots[r]); //Chat.ID Группы Брянск -156934903
             Bot.ConsoleWriteLog(message);
         }
         public async void OnError(Message message, TelegramBotClient client)

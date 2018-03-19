@@ -68,14 +68,12 @@ namespace TelegramBot
                 {
                     if (update.Message != null) 
                     {
+                        foreach (var command in commands)
                         {
-                            foreach (var command in commands)
+                            if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))
                             {
-                                if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))
-                                {
-                                    command.Execute(update.Message, bot);
-                                    break;
-                                }
+                                command.Execute(update.Message, bot);
+                                break;
                             }
                         }
                     }

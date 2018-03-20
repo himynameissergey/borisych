@@ -34,9 +34,9 @@ namespace TelegramBot
             Timer timer = new Timer(tcb, parser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
-            //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова
-            //// создаем таймер
-            //Timer timer2 = new Timer(tcb2, null, 0, 60000);   //будем получать новости каждый час
+            TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer timer2 = new Timer(tcb2, null, 0, 3000);   //будем отправлять сообщение в группу каждую минтуту
 
             bot.RunAsync().Wait();
             Console.ReadKey();
@@ -48,14 +48,18 @@ namespace TelegramBot
             Console.WriteLine("..:: Обновление новостей ::..\n" + DateTime.Now.ToLongTimeString());
             parser.Start();
         }
-        //static async void GetLentaNews(object obj)
-        //{
-        //    TelegramBotClient bot = new TelegramBotClient(BotSettings.Key);
-        //    Random rnd = new Random();
-        //    int r = rnd.Next(ParseCommand.anekdots.Count);
-        //    await bot.SendTextMessageAsync(-156934903, ParseCommand.anekdots[r]); //Chat.ID Группы Брянск 156934903
-        //    //Bot.ConsoleWriteLog(message);
-        //}
+        static async void GetLentaNews(object obj)
+        {
+            TelegramBotClient bot = new TelegramBotClient(BotSettings.Key);
+            //ICommand command = new ParseCommand();
+            //command.Execute(null, bot);
+            Random rnd = new Random();
+            int r = rnd.Next(ParseCommand.anekdots.Count);
+            //await bot.SendTextMessageAsync(-156934903, ParseCommand.anekdots[r]); //Chat.ID Группы Брянск -156934903
+            //await bot.SendTextMessageAsync(-156934903, "говно");
+            ////Bot.ConsoleWriteLog(message);
+            Console.WriteLine("Сообщение отправлено в группу");
+        }
     }
 }
 

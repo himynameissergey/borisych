@@ -13,7 +13,7 @@ namespace TelegramBot.ParserCore
         IParserSettings parserSettings;
         HtmlLoader loader;
         bool isActive;
-
+        
         #region Properties
         public IParser<T> Parser
         {
@@ -80,7 +80,6 @@ namespace TelegramBot.ParserCore
                 var domParser = new HtmlParser();
                 var document = await domParser.ParseAsync(source);
                 var result = parser.Parse(document);
-
                 OnNewData?.Invoke(this, result);
             }
             OnCompleted?.Invoke(this);

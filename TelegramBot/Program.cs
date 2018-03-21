@@ -8,6 +8,7 @@ using Telegram.Bot;
 using TelegramBot.ParserCore;
 using TelegramBot.ParserCore.Habra;
 using TelegramBot.ParserCore.Lenta;
+using TelegramBot.ParserCore.Pikabu;
 using TelegramBot.ParserCore.Porn;
 
 namespace TelegramBot
@@ -46,6 +47,18 @@ namespace TelegramBot
             TimerCallback LentaTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
             // создаем таймер
             Timer LentaTimer = new Timer(LentaTCB, LentaParser, 0, 3600000);   //будем получать новости каждый час
+            #endregion
+
+            #region PikabuParser   
+            ParserWorker<string[]> PikabuParser = new ParserWorker<string[]>(new PikabuParser());
+            PikabuParser.OnCompleted += PikabuCommand.Parser_OnCompleted;
+            PikabuParser.OnNewData += PikabuCommand.Parser_OnNewData;
+            PikabuParser.Settings = new PikabuSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
+
+            TimerCallback PikabuTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer PikabuTimer = new Timer(PikabuTCB, PikabuParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             #region PornParser   

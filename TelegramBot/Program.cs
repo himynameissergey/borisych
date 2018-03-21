@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 using Telegram.Bot;
 using TelegramBot.ParserCore;
 using TelegramBot.ParserCore.Habra;
+using TelegramBot.ParserCore.Anek;
 using TelegramBot.ParserCore.Lenta;
 using TelegramBot.ParserCore.Pikabu;
+using TelegramBot.ParserCore._2chn;
+using TelegramBot.ParserCore._2chb;
 using TelegramBot.ParserCore.Porn;
 
 namespace TelegramBot
@@ -24,6 +27,18 @@ namespace TelegramBot
             Console.WindowWidth = 100;
             Console.Title = "Бот Борисыч для Telegram";
             Console.WriteLine(DateTime.Now + " Бот Борисыч запущен");
+
+            #region AnekParser           
+            ParserWorker<string[]> AnekParser = new ParserWorker<string[]>(new AnekParser());
+            AnekParser.OnCompleted += AnekCommand.Parser_OnCompleted;
+            AnekParser.OnNewData += AnekCommand.Parser_OnNewData;
+            AnekParser.Settings = new AnekSettings(1, 3);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
+
+            TimerCallback AnekTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer AnekTimer = new Timer(AnekTCB, AnekParser, 0, 3600000);   //будем получать новости каждый час
+            #endregion
 
             #region OkParser           
             ParserWorker<string[]>  OkParser = new ParserWorker<string[]>(new HabraParser());
@@ -59,6 +74,30 @@ namespace TelegramBot
             TimerCallback PikabuTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
             // создаем таймер
             Timer PikabuTimer = new Timer(PikabuTCB, PikabuParser, 0, 3600000);   //будем получать новости каждый час
+            #endregion
+
+            #region _2chbParser   
+            ParserWorker<string[]> _2chbParser = new ParserWorker<string[]>(new _2chbParser());
+            _2chbParser.OnCompleted += _2chbCommand.Parser_OnCompleted;
+            _2chbParser.OnNewData += _2chbCommand.Parser_OnNewData;
+            _2chbParser.Settings = new _2chbSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
+
+            TimerCallback _2chbTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer _2chbTimer = new Timer(_2chbTCB, _2chbParser, 0, 3600000);   //будем получать новости каждый час
+            #endregion
+
+            #region _2chnParser   
+            ParserWorker<string[]> _2chnParser = new ParserWorker<string[]>(new _2chnParser());
+            _2chnParser.OnCompleted += _2chnCommand.Parser_OnCompleted;
+            _2chnParser.OnNewData += _2chnCommand.Parser_OnNewData;
+            _2chnParser.Settings = new _2chnSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
+
+            TimerCallback _2chnTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer _2chnTimer = new Timer(_2chnTCB, _2chnParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             #region PornParser   

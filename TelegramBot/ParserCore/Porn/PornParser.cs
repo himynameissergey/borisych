@@ -20,7 +20,8 @@ namespace TelegramBot.ParserCore.Porn
             var items = document.All.Where(item => item.LocalName != null && item.LocalName.Contains("img")).OfType<IHtmlImageElement>(); //stavklass, pornpics
             foreach (var item in items)
             {
-                list.Add(item.Source); //habr, nekdo, stavklass, pornpics
+                //list.Add(item.TextContent); //habr, nekdo
+                list.Add(item.Source); //stavklass, pornpics
                 //list.Add("https://2ch.hk" + item.PathName);   //2ch
                 //list.Add("https://m.lenta.ru" + item.PathName);	//lenta.ru
                 //list.Add("https://pikabu.ru" + item.PathName);	//pikabu

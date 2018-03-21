@@ -81,12 +81,15 @@
     <Compile Include="ParserCore\Pikabu\PikabuSettings.cs" />
     <Compile Include="ParserCore\Porn\PornParser.cs" />
     <Compile Include="ParserCore\Porn\PornSettings.cs" />
+    <Compile Include="ParserCore\Reddit\RedditParser.cs" />
+    <Compile Include="ParserCore\Reddit\RedditSettings.cs" />
     <Compile Include="PikabuCommand.cs" />
     <Compile Include="PornCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rButtonsCommand.cs" />
     <Compile Include="ReadingTextFile.cs" />
+    <Compile Include="RedditCommand.cs" />
     <Compile Include="TalkCommand.cs" />
   </ItemGroup>
   <ItemGroup>

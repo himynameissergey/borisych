@@ -13,6 +13,7 @@ using TelegramBot.ParserCore.Pikabu;
 using TelegramBot.ParserCore._2chn;
 using TelegramBot.ParserCore._2chb;
 using TelegramBot.ParserCore.Porn;
+using TelegramBot.ParserCore.Reddit;
 
 namespace TelegramBot
 {
@@ -28,17 +29,17 @@ namespace TelegramBot
             Console.Title = "Бот Борисыч для Telegram";
             Console.WriteLine(DateTime.Now + " Бот Борисыч запущен");
 
-            #region AnekParser           
-            ParserWorker<string[]> AnekParser = new ParserWorker<string[]>(new AnekParser());
-            AnekParser.OnCompleted += AnekCommand.Parser_OnCompleted;
-            AnekParser.OnNewData += AnekCommand.Parser_OnNewData;
-            AnekParser.Settings = new AnekSettings(1, 3);  // первая страница сайта
-            //parser.Start();   //при работе с таймером эту строчку закомментируем
+            //#region AnekParser           
+            //ParserWorker<string[]> AnekParser = new ParserWorker<string[]>(new AnekParser());
+            //AnekParser.OnCompleted += AnekCommand.Parser_OnCompleted;
+            //AnekParser.OnNewData += AnekCommand.Parser_OnNewData;
+            //AnekParser.Settings = new AnekSettings(1, 1);  // первая страница сайта
+            ////parser.Start();   //при работе с таймером эту строчку закомментируем
 
-            TimerCallback AnekTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
-            // создаем таймер
-            Timer AnekTimer = new Timer(AnekTCB, AnekParser, 0, 3600000);   //будем получать новости каждый час
-            #endregion
+            //TimerCallback AnekTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            //// создаем таймер
+            //Timer AnekTimer = new Timer(AnekTCB, AnekParser, 0, 3600000);   //будем получать новости каждый час
+            //#endregion
 
             #region OkParser           
             ParserWorker<string[]>  OkParser = new ParserWorker<string[]>(new HabraParser());
@@ -110,6 +111,18 @@ namespace TelegramBot
             TimerCallback PornTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
             // создаем таймер
             Timer PornTimer = new Timer(PornTCB, PornParser, 0, 3600000);   //будем получать новости каждый час
+            #endregion
+
+            #region RedditParser           
+            ParserWorker<string[]> RedditParser = new ParserWorker<string[]>(new RedditParser());
+            RedditParser.OnCompleted += RedditCommand.Parser_OnCompleted;
+            RedditParser.OnNewData += RedditCommand.Parser_OnNewData;
+            RedditParser.Settings = new RedditSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
+
+            TimerCallback RedditTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer RedditTimer = new Timer(RedditTCB, RedditParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова

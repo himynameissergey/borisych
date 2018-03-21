@@ -39,13 +39,14 @@ namespace TelegramBot
             commands.Add(new HelpCommand());
             commands.Add(new BredCommand());
             commands.Add(new TalkCommand());
-            commands.Add(new AnekCommand());
+            //commands.Add(new AnekCommand());
             commands.Add(new ParseCommand());
             commands.Add(new LentaCommand());
             commands.Add(new PikabuCommand());
             commands.Add(new _2chnCommand());
             commands.Add(new _2chbCommand());
             commands.Add(new PornCommand());
+            commands.Add(new RedditCommand());
             //commands.Add(new iButtonsCommand());
             //commands.Add(new rButtonsCommand());
         }

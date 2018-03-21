@@ -8,6 +8,7 @@ using Telegram.Bot;
 using TelegramBot.ParserCore;
 using TelegramBot.ParserCore.Habra;
 using TelegramBot.ParserCore.Lenta;
+using TelegramBot.ParserCore.Porn;
 
 namespace TelegramBot
 {
@@ -47,6 +48,18 @@ namespace TelegramBot
             Timer LentaTimer = new Timer(LentaTCB, LentaParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
+            #region PornParser   
+            ParserWorker<string[]> PornParser = new ParserWorker<string[]>(new PornParser());
+            PornParser.OnCompleted += PornCommand.Parser_OnCompleted;
+            PornParser.OnNewData += PornCommand.Parser_OnNewData;
+            PornParser.Settings = new PornSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
+
+            TimerCallback PornTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer PornTimer = new Timer(PornTCB, PornParser, 0, 3600000);   //будем получать новости каждый час
+            #endregion
+
             //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова
             //// создаем таймер
             //Timer timer2 = new Timer(tcb2, null, 0, 3000);   //будем отправлять сообщение в группу каждую минтуту
@@ -59,7 +72,7 @@ namespace TelegramBot
         static void GetNewsUpdate(object obj)
         {
             ParserWorker<string[]> parser = (ParserWorker<string[]>)obj;
-            Console.WriteLine("..:: Обновление новостей ::..\n" + DateTime.Now.ToLongTimeString());
+            Console.WriteLine("..:: Обновление контента ::..\n" + DateTime.Now.ToLongTimeString());
             parser.Start();
         }
         //static async void GetLentaNews(object obj)

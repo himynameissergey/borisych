@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 using Telegram.Bot;
 using TelegramBot.ParserCore;
 using TelegramBot.ParserCore.Habra;
+using TelegramBot.ParserCore.Lenta;
 
 namespace TelegramBot
 {
     class Program
     {
-        static ParserWorker<string[]> parser;
+        //static ParserWorker<string[]> parser;
         static void Main(string[] args)
         {
             Bot bot = new Bot();
@@ -22,17 +23,28 @@ namespace TelegramBot
             Console.Title = "Бот Борисыч для Telegram";
             Console.WriteLine(DateTime.Now + " Бот Борисыч запущен");
 
-            #region For parsing           
-
-            parser = new ParserWorker<string[]>(new HabraParser());
-            parser.OnCompleted += ParseCommand.Parser_OnCompleted;
-            parser.OnNewData += ParseCommand.Parser_OnNewData;
-            parser.Settings = new HabraSettings(1, 1);  // первая страница сайта
+            #region OkParser           
+            ParserWorker<string[]>  OkParser = new ParserWorker<string[]>(new HabraParser());
+            OkParser.OnCompleted += ParseCommand.Parser_OnCompleted;
+            OkParser.OnNewData += ParseCommand.Parser_OnNewData;
+            OkParser.Settings = new HabraSettings(1, 1);  // первая страница сайта
             //parser.Start();   //при работе с таймером эту строчку закомментируем
 
-            TimerCallback tcb = new TimerCallback(Get2chNews);	// устанавливаем метод обратного вызова
+            TimerCallback OkTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
             // создаем таймер
-            Timer timer = new Timer(tcb, parser, 0, 3600000);   //будем получать новости каждый час
+            Timer OkTimer = new Timer(OkTCB, OkParser, 0, 3600000);   //будем получать новости каждый час
+            #endregion
+
+            #region LentaParser   
+            ParserWorker<string[]> LentaParser = new ParserWorker<string[]>(new LentaParser());
+            LentaParser.OnCompleted += LentaCommand.Parser_OnCompleted;
+            LentaParser.OnNewData += LentaCommand.Parser_OnNewData;
+            LentaParser.Settings = new LentaSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
+
+            TimerCallback LentaTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer LentaTimer = new Timer(LentaTCB, LentaParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова
@@ -44,7 +56,7 @@ namespace TelegramBot
             
         }
         //получаем новые новости
-        static void Get2chNews(object obj)
+        static void GetNewsUpdate(object obj)
         {
             ParserWorker<string[]> parser = (ParserWorker<string[]>)obj;
             Console.WriteLine("..:: Обновление новостей ::..\n" + DateTime.Now.ToLongTimeString());

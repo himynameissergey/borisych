@@ -40,6 +40,7 @@ namespace TelegramBot
             commands.Add(new BredCommand());
             commands.Add(new TalkCommand());
             commands.Add(new ParseCommand());
+            commands.Add(new LentaCommand());
             //commands.Add(new iButtonsCommand());
             //commands.Add(new rButtonsCommand());
         }

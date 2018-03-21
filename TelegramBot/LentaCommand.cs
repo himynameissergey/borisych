@@ -10,12 +10,12 @@ using TelegramBot.ParserCore.Habra;
 
 namespace TelegramBot
 {
-    class ParseCommand : ICommand
+    class LentaCommand : ICommand
     {
         /// <summary>
         /// Имя команды
         /// </summary>
-        public string Name { get; set; } = "/ok";
+        public string Name { get; set; } = "/lenta";
         public int CountArgs { get; set; } = 0;
 
         //ParserWorker<string[]> parser;
@@ -43,18 +43,18 @@ namespace TelegramBot
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
-            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/ok"" ");
+            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/lenta"" ");
             Bot.ConsoleWriteLog(message);
         }
         public static void Parser_OnCompleted(object obj)
         {
-            Console.WriteLine("\nПарсер stavklass.ru отработал!\n");
+            Console.WriteLine("\nПарсер lenta.ru отработал!\n");
         }
         public static void Parser_OnNewData(object arg1, string[] arg2)
         {
             for (int i = 0; i < arg2.Length; i++)
             {
-                arg2[i] = arg2[i].Replace("\n","");
+                arg2[i] = arg2[i].Replace("\n", "");
                 Console.WriteLine(arg2[i]);
             }
             anekdots.AddRange(arg2);

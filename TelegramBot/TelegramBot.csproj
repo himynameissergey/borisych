@@ -58,12 +58,15 @@
     <Compile Include="HelpCommand.cs" />
     <Compile Include="iButtonsCommand.cs" />
     <Compile Include="ICommand.cs" />
+    <Compile Include="LentaCommand.cs" />
     <Compile Include="ParseCommand.cs" />
     <Compile Include="ParserCore\Habra\HabraParser.cs" />
     <Compile Include="ParserCore\Habra\HabraSettings.cs" />
     <Compile Include="ParserCore\HtmlLoader.cs" />
     <Compile Include="ParserCore\IParser.cs" />
     <Compile Include="ParserCore\IParserSettings.cs" />
+    <Compile Include="ParserCore\Lenta\LentaParser.cs" />
+    <Compile Include="ParserCore\Lenta\LentaSettings.cs" />
     <Compile Include="ParserCore\ParserWorker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

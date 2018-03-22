@@ -47,6 +47,7 @@ namespace TelegramBot
             commands.Add(new _2chbCommand());
             commands.Add(new PornCommand());
             commands.Add(new RedditCommand());
+            commands.Add(new KMPCommand());
             //commands.Add(new iButtonsCommand());
             //commands.Add(new rButtonsCommand());
         }

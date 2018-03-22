@@ -14,6 +14,7 @@ using TelegramBot.ParserCore._2chn;
 using TelegramBot.ParserCore._2chb;
 using TelegramBot.ParserCore.Porn;
 using TelegramBot.ParserCore.Reddit;
+using TelegramBot.ParserCore.KMP;
 
 namespace TelegramBot
 {
@@ -123,6 +124,18 @@ namespace TelegramBot
             TimerCallback RedditTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
             // создаем таймер
             Timer RedditTimer = new Timer(RedditTCB, RedditParser, 0, 3600000);   //будем получать новости каждый час
+            #endregion
+
+            #region KMPParser           
+            ParserWorker<string[]> KMPParser = new ParserWorker<string[]>(new KMPParser());
+            KMPParser.OnCompleted += KMPCommand.Parser_OnCompleted;
+            KMPParser.OnNewData += KMPCommand.Parser_OnNewData;
+            KMPParser.Settings = new KMPSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
+
+            TimerCallback KMPTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer KMPTimer = new Timer(KMPTCB, KMPParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова

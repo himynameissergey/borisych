@@ -10,12 +10,12 @@ using TelegramBot.ParserCore.Habra;
 
 namespace TelegramBot
 {
-    class RedditCommand : ICommand
+    class KMPCommand : ICommand
     {
         /// <summary>
         /// Имя команды
         /// </summary>
-        public string Name { get; set; } = "/reddit";
+        public string Name { get; set; } = "/kmp";
         public int CountArgs { get; set; } = 0;
 
         //ParserWorker<string[]> parser;
@@ -38,17 +38,17 @@ namespace TelegramBot
 
             Random rnd = new Random();
             int r = rnd.Next(anekdots.Count);
-            //await client.SendTextMessageAsync(chatId, anekdots[r]); //Chat.ID Группы Брянск -156934903
+            await client.SendTextMessageAsync(chatId, anekdots[r]); //Chat.ID Группы Брянск -156934903
             Bot.ConsoleWriteLog(message);
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
-            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/reddit"" ");
+            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/kmp"" ");
             Bot.ConsoleWriteLog(message);
         }
         public static void Parser_OnCompleted(object obj)
         {
-            Console.WriteLine("\nПарсер reddit.com отработал!\n");
+            Console.WriteLine("\nПарсер killpls.me отработал!\n");
         }
         public static void Parser_OnNewData(object arg1, string[] arg2)
         {
@@ -61,4 +61,5 @@ namespace TelegramBot
         }
     }
 }
+
 

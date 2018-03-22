@@ -61,6 +61,7 @@
     <Compile Include="HelpCommand.cs" />
     <Compile Include="iButtonsCommand.cs" />
     <Compile Include="ICommand.cs" />
+    <Compile Include="KMPCommand.cs" />
     <Compile Include="LentaCommand.cs" />
     <Compile Include="ParseCommand.cs" />
     <Compile Include="ParserCore\2chb\2chbParser.cs" />
@@ -74,6 +75,8 @@
     <Compile Include="ParserCore\HtmlLoader.cs" />
     <Compile Include="ParserCore\IParser.cs" />
     <Compile Include="ParserCore\IParserSettings.cs" />
+    <Compile Include="ParserCore\KMP\KMPParser.cs" />
+    <Compile Include="ParserCore\KMP\KMPSettings.cs" />
     <Compile Include="ParserCore\Lenta\LentaParser.cs" />
     <Compile Include="ParserCore\Lenta\LentaSettings.cs" />
     <Compile Include="ParserCore\ParserWorker.cs" />

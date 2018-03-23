@@ -54,6 +54,7 @@
     <Compile Include="2chbCommand.cs" />
     <Compile Include="2chnCommand.cs" />
     <Compile Include="AnekCommand.cs" />
+    <Compile Include="ArhivachCommand.cs" />
     <Compile Include="Bot.cs" />
     <Compile Include="BotSettings.cs" />
     <Compile Include="BredCommand.cs" />
@@ -70,6 +71,8 @@
     <Compile Include="ParserCore\2chn\2chnSettings.cs" />
     <Compile Include="ParserCore\Anek\AnekParser.cs" />
     <Compile Include="ParserCore\Anek\AnekSettings.cs" />
+    <Compile Include="ParserCore\Arhivach\ArhivachParser.cs" />
+    <Compile Include="ParserCore\Arhivach\ArhivachSettings.cs" />
     <Compile Include="ParserCore\Habra\HabraParser.cs" />
     <Compile Include="ParserCore\Habra\HabraSettings.cs" />
     <Compile Include="ParserCore\HtmlLoader.cs" />

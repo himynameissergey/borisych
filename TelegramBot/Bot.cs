@@ -39,7 +39,7 @@ namespace TelegramBot
             commands.Add(new HelpCommand());
             commands.Add(new BredCommand());
             commands.Add(new TalkCommand());
-            //commands.Add(new AnekCommand());
+            commands.Add(new AnekCommand());
             commands.Add(new ParseCommand());
             commands.Add(new LentaCommand());
             commands.Add(new PikabuCommand());
@@ -48,6 +48,7 @@ namespace TelegramBot
             commands.Add(new PornCommand());
             commands.Add(new RedditCommand());
             commands.Add(new KMPCommand());
+            commands.Add(new ArhivachCommand());
             //commands.Add(new iButtonsCommand());
             //commands.Add(new rButtonsCommand());
         }

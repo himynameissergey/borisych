@@ -28,7 +28,7 @@ namespace TelegramBot.ParserCore.Reddit
                 //list.Add("https://2ch.hk" + item.PathName);   //2ch
                 //list.Add("https://m.lenta.ru" + item.PathName);	//lenta.ru
                 //list.Add("https://pikabu.ru" + item.PathName);	//pikabu
-                list.Add(item.Attributes["href"].Value);	//reddit
+                list.Add(item.Attributes["href"].Value.Replace("gifv", "mp4"));	//reddit
             }
             return list.ToArray();
         }

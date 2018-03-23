@@ -146,7 +146,6 @@ namespace TelegramBot
             ArhivachParser.Settings = new ArhivachSettings(1, 1);  // первая страница сайта
             //parser.Start();   //при работе с таймером эту строчку закомментируем
 
-            Console.WriteLine("..:: Обновление контента ::..\n" + DateTime.Now.ToLongTimeString());
             TimerCallback ArhivachTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
             // создаем таймер
             Timer ArhivachTimer = new Timer(ArhivachTCB, ArhivachParser, 0, 3600000);   //будем получать новости каждый час
@@ -164,7 +163,7 @@ namespace TelegramBot
         static void GetNewsUpdate(object obj)
         {
             ParserWorker<string[]> parser = (ParserWorker<string[]>)obj;
-            //Console.WriteLine("..:: Обновление контента ::..\n" + DateTime.Now.ToLongTimeString());
+            Console.WriteLine("..:: Обновление контента ::..\n" + DateTime.Now.ToLongTimeString());
             parser.Start();
         }
         //static async void GetLentaNews(object obj)

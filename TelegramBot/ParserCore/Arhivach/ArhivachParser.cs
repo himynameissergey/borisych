@@ -20,7 +20,7 @@ namespace TelegramBot.ParserCore.Arhivach
             //var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("story__title-link")).OfType<IHtmlAnchorElement>(); //pikabu
             //var items = document.All.Where(item => item.LocalName != null && item.LocalName.Contains("img")).OfType<IHtmlImageElement>(); //stavklass
             //var items = document.QuerySelectorAll("a")/*.Where(item => item.Style == null && item.ClassName.Contains("thread_text"))*/.OfType<IHtmlAnchorElement>(); //arhivach
-            var items = document.QuerySelectorAll("a").Where(item => item.Attributes["style"] != null).Select(x => x.Attributes["href"].Value); //arhivach
+            var items = document.QuerySelectorAll("a").Where(item => item.Attributes["style"] != null).Select(x => x.Attributes["href"].Value); //arhivach еще
             foreach (var item in items)
             {
                 //list.Add(item.TextContent); //habr, nekdo

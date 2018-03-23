@@ -18,7 +18,9 @@ namespace TelegramBot.ParserCore.Reddit
             //var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("b-list-item__link")).OfType<IHtmlAnchorElement>(); //lenta.ru
             //var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("story__title-link")).OfType<IHtmlAnchorElement>(); //pikabu
             //var items = document.All.Where(item => item.LocalName != null && item.LocalName.Contains("img")).OfType<IHtmlImageElement>(); //stavklass
-            var items = document.QuerySelectorAll("p").Where(item => item.ClassName != null && item.ClassName.Contains("title")).OfType<IHtmlAnchorElement>(); //reddit
+            //var items = document.QuerySelectorAll("p").Where(item => item.ClassName != null && item.ClassName.Contains("title")).OfType<IHtmlAnchorElement>(); //reddit
+            var items = document.QuerySelectorAll("a").Where(item => item.Attributes["href"]!=null && item.Attributes["href"].Value.Contains("gifv"));//.Select(x => x.Attributes["href"].Value); //reddit еще
+            
             foreach (var item in items)
             {
                 //list.Add(item.TextContent); //habr, nekdo
@@ -26,10 +28,12 @@ namespace TelegramBot.ParserCore.Reddit
                 //list.Add("https://2ch.hk" + item.PathName);   //2ch
                 //list.Add("https://m.lenta.ru" + item.PathName);	//lenta.ru
                 //list.Add("https://pikabu.ru" + item.PathName);	//pikabu
-                list.Add(item.PathName);	//reddit
+                list.Add(item.Attributes["href"].Value);	//reddit
             }
             return list.ToArray();
         }
     }
 }
 
+//AngleSharp example
+//var links= document.QuerySelectorAll("a.object-title-a.text-truncate").Where(item => item.Attributes["href"]!=null).Select(x=>x.item.Atributtes["href"].Value).ToList();

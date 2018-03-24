@@ -1,0 +1,73 @@
+using System;
+using System.Threading.Tasks;
+using Telegram.Bot;
+
+namespace penitto
+{
+    class Bot
+    {
+        private TelegramBotClient bot;
+        public Bot()
+        {
+            bot = new TelegramBotClient("<hash>");
+        }
+        public async Task TestApiAsync()
+        {
+            // https://api.telegram.org/bot<>/getupdates
+            //TelegramBotClient botClient = new TelegramBotClient("<hash>");
+            //await bot.SetWebhookAsync("");
+            int offset = 0;
+            while (true)
+            {
+                var updates = await bot.GetUpdatesAsync(offset); // получаем массив обновлений
+                foreach (var update in updates) // Перебираем все обновления
+                {
+                    if (update.Message != null && update.Message.Text != null)
+                    {
+                        Console.WriteLine("Принят текст: " + update.Message.Text + " " + offset + " " + update.Message.Type);  //Проверка, читает ли вообще сообщения бот
+                            //Console.WriteLine(update.Id+update.Message.Text);
+                            //if (update.Message.Type == MessageType.TextMessage)
+                            //{ }
+                            //if (update.Message.Type == MessageType.TextMessage)
+                            //{
+                            //    if (update.Message.Text.Contains("/help") || update.Message.Text.Contains("красавчик помоги!"))
+                            //    {
+                            //в ответ на команду  выводим сообщение
+                            //await botClient.SendTextMessageAsync(message.Chat.Id, "тест", replyToMessageId: message.MessageId);  //С Цитатой
+                            //        await botClient.SendTextMessageAsync(update.Message.Chat.Id, "хуй тебе"); //без цитаты
+                            //        Console.WriteLine("Отправлен ответ в чат:" + update.Message.Chat.Id + " " + update.Message.Text);
+                            //    }
+                            //}
+                    }
+                    offset = update.Id + 1;
+                    //if (update.Message.Type != MessageType.TextMessage)
+                    //{ offset = update.Id + 1; }
+                }
+            }
+        }
+
+    }
+    class ConLog
+    {
+        public static void ConLogWrite(string info)
+        {
+            Console.WriteLine("Hello World!");
+            Console.WriteLine("Press any key to exit.");
+            Console.WriteLine(info);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //var erw332 = TestApiAsync();
+            Bot bot = new Bot();
+            bot.TestApiAsync().Wait();
+            Console.WriteLine("Какаято ниибическая ошибка, СТАПЭЭЭЭ!!!");
+            Console.WriteLine("Введи текст");
+            var ReadCon = Console.ReadLine();
+            ConLog.ConLogWrite(ReadCon);
+            Console.ReadKey();
+        }
+    }
+}

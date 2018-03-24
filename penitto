@@ -9,7 +9,7 @@ namespace penitto
         private TelegramBotClient bot;
         public Bot()
         {
-            bot = new TelegramBotClient("467291663:AAEL9EX93b8zm-5xw4Q8guA-9diHZD429xI");
+            bot = new TelegramBotClient("<hash>");
         }
         public async Task TestApiAsync()
         {

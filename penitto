@@ -14,7 +14,7 @@ namespace penitto
         public async Task TestApiAsync()
         {
             // https://api.telegram.org/bot<>/getupdates
-            //TelegramBotClient botClient = new TelegramBotClient("467291663:AAEL9EX93b8zm-5xw4Q8guA-9diHZD429xI");
+            //TelegramBotClient botClient = new TelegramBotClient("<hash>");
             //await bot.SetWebhookAsync("");
             int offset = 0;
             while (true)

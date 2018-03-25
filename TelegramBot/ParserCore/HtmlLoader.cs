@@ -7,7 +7,7 @@ namespace TelegramBot.ParserCore
     class HtmlLoader
     {
         readonly HttpClient client;
-        readonly string url;
+        string url;
 
         public HtmlLoader(IParserSettings settings)
         {
@@ -18,6 +18,10 @@ namespace TelegramBot.ParserCore
 
         public async Task<string> GetSourceByPageId(int id)
         {
+            //if (url.Contains("www.porn.com"))
+            //{
+            //    url = url.Remove(url.Length - 1);
+            //}
             var currentUrl = url.Replace("{CurrentId}", id.ToString());
             var response = await client.GetAsync(currentUrl);
             string source = null;

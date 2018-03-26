@@ -38,7 +38,9 @@ namespace TelegramBot
 
             Random rnd = new Random();
             int r = rnd.Next(anekdots.Count);
-            await client.SendTextMessageAsync(chatId, anekdots[r]); //Chat.ID Группы Брянск -156934903
+            await client.SendTextMessageAsync(chatId, anekdots[r]+ "\n\U0001F602 \U0001F602 \U0001F602"); //Chat.ID Группы Брянск -156934903
+            var sticker = new FileToSend("CAADAgADZwcAAgk7OxO4xNLHTf2wfQI"); // стикер с Петросяном
+            //await client.SendStickerAsync(chatId, sticker);
             Bot.ConsoleWriteLog(message);
         }
         public async void OnError(Message message, TelegramBotClient client)

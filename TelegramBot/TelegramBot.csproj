@@ -89,6 +89,8 @@
     <Compile Include="ParserCore\Porn\PornSettings.cs" />
     <Compile Include="ParserCore\Reddit\RedditParser.cs" />
     <Compile Include="ParserCore\Reddit\RedditSettings.cs" />
+    <Compile Include="ParserCore\vk\vkParser.cs" />
+    <Compile Include="ParserCore\vk\vkSetings.cs" />
     <Compile Include="PikabuCommand.cs" />
     <Compile Include="PornCommand.cs" />
     <Compile Include="Program.cs" />
@@ -97,6 +99,7 @@
     <Compile Include="ReadingTextFile.cs" />
     <Compile Include="RedditCommand.cs" />
     <Compile Include="TalkCommand.cs" />
+    <Compile Include="vkCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

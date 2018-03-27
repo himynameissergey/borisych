@@ -49,6 +49,7 @@ namespace TelegramBot
             commands.Add(new RedditCommand());
             commands.Add(new KMPCommand());
             commands.Add(new ArhivachCommand());
+            commands.Add(new vkCommand());
             //commands.Add(new iButtonsCommand());
             //commands.Add(new rButtonsCommand());
         }

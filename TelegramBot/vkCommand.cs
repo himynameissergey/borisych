@@ -10,12 +10,12 @@ using TelegramBot.ParserCore.Habra;
 
 namespace TelegramBot
 {
-    class AnekCommand : ICommand
+    class vkCommand : ICommand
     {
         /// <summary>
         /// Имя команды
         /// </summary>
-        public string Name { get; set; } = "/anek";
+        public string Name { get; set; } = "/vk";
         public int CountArgs { get; set; } = 0;
 
         //ParserWorker<string[]> parser;
@@ -38,19 +38,17 @@ namespace TelegramBot
 
             Random rnd = new Random();
             int r = rnd.Next(anekdots.Count);
-            await client.SendTextMessageAsync(chatId, anekdots[r] /*+ "\n\U0001F602 \U0001F602 \U0001F602"*/); //Chat.ID Группы Брянск -156934903
-            var sticker = new FileToSend("CAADAgADZwcAAgk7OxO4xNLHTf2wfQI"); // стикер с Петросяном
-            await client.SendStickerAsync(chatId, sticker);
+            await client.SendTextMessageAsync(chatId, anekdots[r]); //Chat.ID Группы Брянск -156934903
             Bot.ConsoleWriteLog(message);
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
-            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/anek"" ");
+            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/vk"" ");
             Bot.ConsoleWriteLog(message);
         }
         public static void Parser_OnCompleted(object obj)
         {
-            Console.WriteLine("\nПарсер nekdo.ru отработал!\n");
+            Console.WriteLine("\nПарсер vk.com отработал!\n");
         }
         public static void Parser_OnNewData(object arg1, string[] arg2)
         {
@@ -63,4 +61,3 @@ namespace TelegramBot
         }
     }
 }
-

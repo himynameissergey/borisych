@@ -18,10 +18,10 @@ namespace TelegramBot.ParserCore
 
         public async Task<string> GetSourceByPageId(int id)
         {
-            //if (url.Contains("www.porn.com"))
-            //{
-            //    url = url.Remove(url.Length - 1);
-            //}
+            if (url.Contains("vk.com"))
+            {
+                url = url.Remove(url.Length - 2);
+            }
             var currentUrl = url.Replace("{CurrentId}", id.ToString());
             var response = await client.GetAsync(currentUrl);
             string source = null;

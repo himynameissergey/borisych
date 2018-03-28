@@ -169,7 +169,7 @@ namespace TelegramBot
             ParserWorker<string[]> PenParser = new ParserWorker<string[]>(new PenParser());
             PenParser.OnCompleted += PenCommand.Parser_OnCompleted;
             PenParser.OnNewData += PenCommand.Parser_OnNewData;
-            PenParser.Settings = new PenSettings(1, 1);  // первая страница сайта
+            PenParser.Settings = new PenSettings(1, 5);  // первая страница сайта
             //parser.Start();   //при работе с таймером эту строчку закомментируем
 
             TimerCallback PenTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова

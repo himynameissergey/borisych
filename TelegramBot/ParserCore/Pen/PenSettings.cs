@@ -14,7 +14,7 @@
         //public string BaseUrl { get; set; } = "https://pikabu.ru/hot";
         //public string BaseUrl { get; set; } = "https://ru.m.xhamster.com";
         //public string BaseUrl { get; set; } = "https://vk.com/tip32";
-        public string BaseUrl { get; set; } = "http://penitto.ru/";
+        public string BaseUrl { get; set; } = "http://penitto.ru";
         //public string Prefix { get; set; } = "page{CurrentId}";   //habr
         //public string Prefix { get; set; } = "page/{CurrentId}";  //nekdo
         public string Prefix { get; set; } = "?paged={CurrentId}";  //penitto.ru

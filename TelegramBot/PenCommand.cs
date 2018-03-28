@@ -48,7 +48,7 @@ namespace TelegramBot
         }
         public static void Parser_OnCompleted(object obj)
         {
-            Console.WriteLine("\nПарсер vk.com отработал!\n");
+            Console.WriteLine("\nПарсер penitto.ru отработал!\n");
         }
         public static void Parser_OnNewData(object arg1, string[] arg2)
         {

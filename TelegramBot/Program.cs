@@ -17,6 +17,7 @@ using TelegramBot.ParserCore.Reddit;
 using TelegramBot.ParserCore.KMP;
 using TelegramBot.ParserCore.Arhivach;
 using TelegramBot.ParserCore.vk;
+using TelegramBot.ParserCore.Pen;
 
 namespace TelegramBot
 {
@@ -162,6 +163,18 @@ namespace TelegramBot
             TimerCallback vkTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
             // создаем таймер
             Timer vkTimer = new Timer(vkTCB, vkParser, 0, 3600000);   //будем получать новости каждый час
+            #endregion
+
+            #region PenParser           
+            ParserWorker<string[]> PenParser = new ParserWorker<string[]>(new PenParser());
+            PenParser.OnCompleted += PenCommand.Parser_OnCompleted;
+            PenParser.OnNewData += PenCommand.Parser_OnNewData;
+            PenParser.Settings = new PenSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
+
+            TimerCallback PenTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer PenTimer = new Timer(PenTCB, PenParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова

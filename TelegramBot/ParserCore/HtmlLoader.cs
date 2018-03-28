@@ -18,7 +18,7 @@ namespace TelegramBot.ParserCore
 
         public async Task<string> GetSourceByPageId(int id)
         {
-            if (url.Contains("vk.com"))
+            if (url.Contains("vk.com/tip32//"))
             {
                 url = url.Remove(url.Length - 2);
             }

@@ -19,6 +19,7 @@ namespace TelegramBot.ParserCore.Porn
             //var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("story__title-link")).OfType<IHtmlAnchorElement>(); //pikabu
             //var items = document.All.Where(item => item.LocalName != null && item.LocalName.Contains("img")).OfType<IHtmlImageElement>(); //stavklass, pornpics
             var items = document.QuerySelectorAll("div").Where(item => item.ClassName == "thumb_container").Select(x => x.Attributes["data-previewvideo"].Value); //xhamster
+            //var items = document.QuerySelectorAll("a").Where(item => item.Attributes["href"].Value.Contains("gfycatporn.com/oilporn")).Select(x => x.Attributes["href"].Value); //gfycat
             foreach (var item in items)
             {
                 //if (item.Source.Length < 100)

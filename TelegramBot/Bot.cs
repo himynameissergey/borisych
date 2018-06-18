@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MihaZupan;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -34,7 +35,12 @@ namespace TelegramBot
             List<string> lines = ReadingTextFile.GetLinesOfTextFile(3);
 
             //bot = new TelegramBotClient(BotSettings.Key);
-            bot = new TelegramBotClient(lines[1]);
+            #region Proxy
+            var proxy = new HttpToSocks5Proxy("bot.avinfo17.info", 38157);
+            proxy.ResolveHostnamesLocally = true; // Allows you to use proxies that are only allowing connections to Telegram
+            #endregion
+
+            bot = new TelegramBotClient(lines[1], proxy);
             commands.Add(new HelloCommand());
             commands.Add(new HelpCommand());
             commands.Add(new BredCommand());
@@ -48,7 +54,7 @@ namespace TelegramBot
             commands.Add(new PornCommand());
             commands.Add(new RedditCommand());
             commands.Add(new KMPCommand());
-            commands.Add(new ArhivachCommand());
+            //commands.Add(new ArhivachCommand());
             commands.Add(new vkCommand());
             commands.Add(new PenCommand());
             //commands.Add(new iButtonsCommand());

@@ -22,6 +22,10 @@ namespace TelegramBot.ParserCore
             {
                 url = url.Remove(url.Length - 2);
             }
+            if (url.Contains("reddit.com/r/gifs//"))
+            {
+                url = url.Remove(url.Length - 2);
+            }
             var currentUrl = url.Replace("{CurrentId}", id.ToString());
             var response = await client.GetAsync(currentUrl);
             string source = null;

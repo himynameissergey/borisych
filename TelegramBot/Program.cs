@@ -151,7 +151,7 @@ namespace TelegramBot
             //TimerCallback ArhivachTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
             //// создаем таймер
             //Timer ArhivachTimer = new Timer(ArhivachTCB, ArhivachParser, 0, 3600000);   //будем получать новости каждый час
-            #endregion
+            #endregion  
 
             #region vkParser           
             ParserWorker<string[]> vkParser = new ParserWorker<string[]>(new vkParser());
@@ -179,7 +179,7 @@ namespace TelegramBot
 
             //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова
             //// создаем таймер
-            //Timer timer2 = new Timer(tcb2, null, 0, 3000);   //будем отправлять сообщение в группу каждую минтуту
+            //Timer timer2 = new Timer(tcb2, null, 0, 3000);   //будем отправлять сообщение в группу каждую минуту
 
             bot.RunAsync().Wait();
             Console.ReadKey();

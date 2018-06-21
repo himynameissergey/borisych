@@ -37,6 +37,7 @@ namespace TelegramBot
             //bot = new TelegramBotClient(BotSettings.Key);
             #region Proxy
             var proxy = new HttpToSocks5Proxy("bot.avinfo17.info", 38157);
+            //var proxy = new HttpToSocks5Proxy("lsulc.tgvpnproxy.me", 1080);
             proxy.ResolveHostnamesLocally = true; // Allows you to use proxies that are only allowing connections to Telegram
             #endregion
 

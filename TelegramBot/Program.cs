@@ -29,7 +29,7 @@ namespace TelegramBot
             Bot bot = new Bot();
 
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WindowHeight = 10;
+            Console.WindowHeight = 20;
             Console.WindowWidth = 100;
             Console.Title = "Бот Борисыч для Telegram";
             Console.WriteLine(DateTime.Now + " Бот Борисыч запущен");

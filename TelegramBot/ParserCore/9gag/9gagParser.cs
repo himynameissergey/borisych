@@ -20,8 +20,8 @@ namespace TelegramBot.ParserCore._9gag
             //var items = document.All.Where(item => item.LocalName != null && item.LocalName.Contains("img")).OfType<IHtmlImageElement>(); //stavklass
             //var items = document.QuerySelectorAll("p").Where(item => item.ClassName != null && item.ClassName.Contains("title")).OfType<IHtmlAnchorElement>(); //reddit
             //var items = document.QuerySelectorAll("a").Where(item => item.Attributes["href"] != null && item.Attributes["href"].Value.Contains("gifv"));//.Select(x => x.Attributes["href"].Value); //reddit еще
-            var items = document.QuerySelectorAll("source").Where(item => item.Attributes["src"] != null && item.Attributes["src"].Value.Contains("mp4")).Select(x => x.Attributes["src"].Value); //9gag
-
+            //var items = document.QuerySelectorAll("script").Where(item => item.Attributes["type"] != null && item.Attributes["type"].Value.Contains("text/javascript")).Select(x => x.Attributes["type"].Value); //9gag
+            var items = document.All.Where(item => item.LocalName.Contains("script") && item.TextContent.Contains("GAG.App.loadConfigs"))/*.Select(x => x.TagName);*/.OfType<IHtmlVideoElement>();
             foreach (var item in items)
             {
                 //list.Add(item.TextContent); //habr, nekdo

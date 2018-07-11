@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="2chbCommand.cs" />
     <Compile Include="2chnCommand.cs" />
+    <Compile Include="9gagCommand.cs" />
     <Compile Include="AnekCommand.cs" />
     <Compile Include="ArhivachCommand.cs" />
     <Compile Include="Bot.cs" />
@@ -72,6 +73,8 @@
     <Compile Include="ParserCore\2chb\2chbSettings.cs" />
     <Compile Include="ParserCore\2chn\2chnParser.cs" />
     <Compile Include="ParserCore\2chn\2chnSettings.cs" />
+    <Compile Include="ParserCore\9gag\9gagParser.cs" />
+    <Compile Include="ParserCore\9gag\9gagSettings.cs" />
     <Compile Include="ParserCore\Anek\AnekParser.cs" />
     <Compile Include="ParserCore\Anek\AnekSettings.cs" />
     <Compile Include="ParserCore\Arhivach\ArhivachParser.cs" />

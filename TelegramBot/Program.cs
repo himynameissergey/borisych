@@ -180,16 +180,17 @@ namespace TelegramBot
             #endregion
 
             #region _9gagParser           
-            ParserWorker<string[]> _9gagParser = new ParserWorker<string[]>(new _9gagParser());
-            _9gagParser.OnCompleted += _9gagCommand.Parser_OnCompleted;
-            _9gagParser.OnNewData += _9gagCommand.Parser_OnNewData;
-            _9gagParser.Settings = new _9gagSettings(1, 1);  // первая страница сайта
-            //parser.Start();   //при работе с таймером эту строчку закомментируем
+            //ParserWorker<string[]> _9gagParser = new ParserWorker<string[]>(new _9gagParser());
+            //_9gagParser.OnCompleted += _9gagCommand.Parser_OnCompleted;
+            //_9gagParser.OnNewData += _9gagCommand.Parser_OnNewData;
+            //_9gagParser.Settings = new _9gagSettings(1, 1);  // первая страница сайта
+            ////parser.Start();   //при работе с таймером эту строчку закомментируем
 
-            TimerCallback _9gagTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
-            // создаем таймер
-            Timer _9gagTimer = new Timer(_9gagTCB, _9gagParser, 0, 3600000);   //будем получать новости каждый час
+            //TimerCallback _9gagTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            //// создаем таймер
+            //Timer _9gagTimer = new Timer(_9gagTCB, _9gagParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
+
             //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова
             //// создаем таймер
             //Timer timer2 = new Timer(tcb2, null, 0, 3000);   //будем отправлять сообщение в группу каждую минуту

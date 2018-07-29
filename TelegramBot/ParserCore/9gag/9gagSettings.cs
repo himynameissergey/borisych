@@ -14,7 +14,7 @@
         //public string BaseUrl { get; set; } = "https://pikabu.ru/hot";
         //public string BaseUrl { get; set; } = "http://stavklass.ru/images";
         //public string BaseUrl { get; set; } = "https://www.reddit.com/r/gifs";
-        public string BaseUrl { get; set; } = "https://9gag.com/wtf";
+        public string BaseUrl { get; set; } = "http://www.sex.com/gifs";
         //public string Prefix { get; set; } = "page{CurrentId}";   //habr
         //public string Prefix { get; set; } = "page/{CurrentId}";  //nekdo
         public string Prefix { get; set; } = "";    //2ch, lenta.ru, pikabu, stavklass, pornpics, reddit, 9gag

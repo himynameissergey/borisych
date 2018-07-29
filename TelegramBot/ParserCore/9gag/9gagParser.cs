@@ -20,8 +20,8 @@ namespace TelegramBot.ParserCore._9gag
             //var items = document.All.Where(item => item.LocalName != null && item.LocalName.Contains("img")).OfType<IHtmlImageElement>(); //stavklass
             //var items = document.QuerySelectorAll("p").Where(item => item.ClassName != null && item.ClassName.Contains("title")).OfType<IHtmlAnchorElement>(); //reddit
             //var items = document.QuerySelectorAll("a").Where(item => item.Attributes["href"] != null && item.Attributes["href"].Value.Contains("gifv"));//.Select(x => x.Attributes["href"].Value); //reddit еще
-            //var items = document.QuerySelectorAll("script").Where(item => item.Attributes["type"] != null && item.Attributes["type"].Value.Contains("text/javascript")).Select(x => x.Attributes["type"].Value); //9gag
-            var items = document.All.Where(item => item.LocalName.Contains("script") && item.TextContent.Contains("GAG.App.loadConfigs"))/*.Select(x => x.TagName);*/.OfType<IHtmlVideoElement>();
+            var items = document.QuerySelectorAll("img").Where(item => item.Attributes["data-src"] != null && item.Attributes["data-src"].Value.Contains("https://images.sex.com/images/pinporn")).Select(x => x.Attributes["data-src"].Value); //sex
+            
             foreach (var item in items)
             {
                 //list.Add(item.TextContent); //habr, nekdo
@@ -30,7 +30,7 @@ namespace TelegramBot.ParserCore._9gag
                 //list.Add("https://m.lenta.ru" + item.PathName);	//lenta.ru
                 //list.Add("https://pikabu.ru" + item.PathName);	//pikabu
                 //list.Add(item.Attributes["href"].Value.Replace("gifv", "mp4"));	//reddit
-                //list.Add(item)    //9gag
+                list.Add(item);    //9gag
             }
             return list.ToArray();
         }

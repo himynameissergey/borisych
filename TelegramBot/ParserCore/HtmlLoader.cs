@@ -12,15 +12,15 @@ namespace TelegramBot.ParserCore
         public HtmlLoader(IParserSettings settings)
         {
             client = new HttpClient();
-            //url = $"{settings.BaseUrl}/{settings.Prefix}/";   //habr, nekdo
+            //url = $"{settings.BaseUrl}/{settings.Prefix}/";   //habr, nekdo, vk
             url = $"{settings.BaseUrl}/{settings.Prefix}";   //2ch, pikabu, stavklass, pornpics, arhivach, reddit
         }
 
         public async Task<string> GetSourceByPageId(int id)
         {
-            if (url.Contains("vk.com/tip32//"))
+            if (url.Contains("vk.com/tip32/"))
             {
-                url = url.Remove(url.Length - 2);
+                url = url.Remove(url.Length - 1);
             }
             if (url.Contains("reddit.com/r/gifs//"))
             {

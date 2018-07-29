@@ -15,7 +15,7 @@ namespace TelegramBot
         /// <summary>
         /// Имя команды
         /// </summary>
-        public string Name { get; set; } = "/9gag";
+        public string Name { get; set; } = "/sex";
         public int CountArgs { get; set; } = 0;
 
         //ParserWorker<string[]> parser;

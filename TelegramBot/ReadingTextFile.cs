@@ -9,7 +9,7 @@ namespace TelegramBot
 {
     class ReadingTextFile
     {
-        public static List<string> GetLinesOfTextFile (int LinesCount)
+        public static List<string> GetLinesOfTextFile ()
         {
             //string path = @"..\..\settings.txt";
             string path = @"settings.txt";

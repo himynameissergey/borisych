@@ -55,7 +55,7 @@ namespace TelegramBot
         }
         public static void Parser_OnCompleted(object obj)
         {
-            Console.WriteLine("\nПарсер pornpics.com отработал!\n");
+            Console.WriteLine("\nПарсер NSFW с reddit.com отработал!\n");
         }
         public static void Parser_OnNewData(object arg1, string[] arg2)
         {

@@ -144,15 +144,15 @@ namespace TelegramBot
             #endregion
 
             #region ArhivachParser           
-            //ParserWorker<string[]> ArhivachParser = new ParserWorker<string[]>(new ArhivachParser());
-            //ArhivachParser.OnCompleted += ArhivachCommand.Parser_OnCompleted;
-            //ArhivachParser.OnNewData += ArhivachCommand.Parser_OnNewData;
-            //ArhivachParser.Settings = new ArhivachSettings(1, 1);  // первая страница сайта
-            ////parser.Start();   //при работе с таймером эту строчку закомментируем
+            ParserWorker<string[]> ArhivachParser = new ParserWorker<string[]>(new ArhivachParser());
+            ArhivachParser.OnCompleted += ArhivachCommand.Parser_OnCompleted;
+            ArhivachParser.OnNewData += ArhivachCommand.Parser_OnNewData;
+            ArhivachParser.Settings = new ArhivachSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
 
-            //TimerCallback ArhivachTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
-            //// создаем таймер
-            //Timer ArhivachTimer = new Timer(ArhivachTCB, ArhivachParser, 0, 3600000);   //будем получать новости каждый час
+            TimerCallback ArhivachTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer ArhivachTimer = new Timer(ArhivachTCB, ArhivachParser, 0, 3600000);   //будем получать новости каждый час
             #endregion  
 
             #region vkParser           
@@ -194,10 +194,19 @@ namespace TelegramBot
             //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова
             //// создаем таймер
             //Timer timer2 = new Timer(tcb2, null, 0, 3000);   //будем отправлять сообщение в группу каждую минуту
-
-            bot.RunAsync().Wait();
-            Console.ReadKey();
-            
+            try
+            {
+                bot.RunAsync().Wait();
+            }
+            catch (AggregateException ae)
+            {
+                Console.WriteLine(ae.Message);
+            }
+            finally
+            {
+                bot.RunAsync().Wait();
+            }
+            Console.ReadKey();            
         }
         //получаем новые новости
         static void GetNewsUpdate(object obj)

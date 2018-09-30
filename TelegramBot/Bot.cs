@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
@@ -32,7 +33,7 @@ namespace TelegramBot
         /// </summary>
         public Bot()
         {
-            List<string> lines = ReadingTextFile.GetLinesOfTextFile(3);
+            List<string> lines = ReadingTextFile.GetLinesOfTextFile();
 
             //bot = new TelegramBotClient(BotSettings.Key);
             #region Proxy
@@ -55,7 +56,7 @@ namespace TelegramBot
             commands.Add(new PornCommand());
             commands.Add(new RedditCommand());
             commands.Add(new KMPCommand());
-            //commands.Add(new ArhivachCommand());
+            commands.Add(new ArhivachCommand());
             commands.Add(new vkCommand());
             commands.Add(new PenCommand());
             commands.Add(new _9gagCommand());
@@ -78,27 +79,27 @@ namespace TelegramBot
         /// </summary>
         public async Task RunAsync()
         {
-            int offset = 0;
-            while (true)
-            {
-                var updates = await bot.GetUpdatesAsync(offset);
-
-                foreach (var update in updates)
+                int offset = 0;
+                while (true)
                 {
-                    if (update.Message != null) 
+                    var updates = await bot.GetUpdatesAsync(offset);
+
+                    foreach (var update in updates)
                     {
-                        foreach (var command in commands)
+                        if (update.Message != null)
                         {
-                            if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))
+                            foreach (var command in commands)
                             {
-                                command.Execute(update.Message, bot);
-                                break;
+                                if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))
+                                {
+                                    command.Execute(update.Message, bot);
+                                    break;
+                                }
                             }
                         }
+                        offset = update.Id + 1;
                     }
-                    offset = update.Id + 1;
                 }
-            }
         }
     }
 }

@@ -11,7 +11,7 @@ namespace TelegramBot
 {
     class TalkCommand : ICommand
     {
-        static List<string> lines = ReadingTextFile.GetLinesOfTextFile(3);
+        static List<string> lines = ReadingTextFile.GetLinesOfTextFile();
 
         //public string Name { get; set; } = "борисыч";
         public string Name { get; set; } = lines[2];

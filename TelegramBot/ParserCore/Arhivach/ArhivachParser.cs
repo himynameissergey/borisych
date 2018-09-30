@@ -30,7 +30,7 @@ namespace TelegramBot.ParserCore.Arhivach
                 //list.Add("https://pikabu.ru" + item.PathName);	//pikabu
                 if (item.Contains("/thread/"))
                 {
-                    list.Add("http://arhivach.org" + item);    //arhivach
+                    list.Add("http://arhivach.cf" + item);    //arhivach
                 }
             }
             return list.ToArray();

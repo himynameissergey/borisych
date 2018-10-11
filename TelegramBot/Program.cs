@@ -19,6 +19,7 @@ using TelegramBot.ParserCore.Arhivach;
 using TelegramBot.ParserCore.vk;
 using TelegramBot.ParserCore.Pen;
 using TelegramBot.ParserCore._9gag;
+using TelegramBot.ParserCore.Bash;
 
 namespace TelegramBot
 {
@@ -189,6 +190,18 @@ namespace TelegramBot
             TimerCallback _9gagTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
             // создаем таймер
             Timer _9gagTimer = new Timer(_9gagTCB, _9gagParser, 0, 3600000);   //будем получать новости каждый час
+            #endregion
+
+            #region BashParser           
+            ParserWorker<string[]> BashParser = new ParserWorker<string[]>(new BashParser());
+            BashParser.OnCompleted += BashCommand.Parser_OnCompleted;
+            BashParser.OnNewData += BashCommand.Parser_OnNewData;
+            BashParser.Settings = new BashSettings(1, 1);  // 1 страницf сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
+
+            TimerCallback BashTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer BashTimer = new Timer(BashTCB, BashParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова

@@ -196,7 +196,7 @@ namespace TelegramBot
             ParserWorker<string[]> BashParser = new ParserWorker<string[]>(new BashParser());
             BashParser.OnCompleted += BashCommand.Parser_OnCompleted;
             BashParser.OnNewData += BashCommand.Parser_OnNewData;
-            BashParser.Settings = new BashSettings(1, 1);  // 1 страницf сайта
+            BashParser.Settings = new BashSettings(1, 1);  // 1 страница сайта
             //parser.Start();   //при работе с таймером эту строчку закомментируем
 
             TimerCallback BashTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова

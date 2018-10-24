@@ -19,7 +19,7 @@ namespace TelegramBot
             var chatId = -156934903; // - ChatId группы Брянск  //message.Chat.Id;
             //var messageId = message.MessageId;
             //DateTime now = DateTime.Now;
-            string say = message.Text.Substring(0, message.Text.Length - 5);
+            string say = message.Text.Substring(5); //обрезаем первые 5 символов (/msg )
             // результат "роший де"
             await client.SendTextMessageAsync(chatId, say);//, replyToMessageId: messageId);
             Bot.ConsoleWriteLog(message);

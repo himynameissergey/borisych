@@ -72,6 +72,7 @@
     <Compile Include="ICommand.cs" />
     <Compile Include="KMPCommand.cs" />
     <Compile Include="LentaCommand.cs" />
+    <Compile Include="MsgCommand.cs" />
     <Compile Include="ParseCommand.cs" />
     <Compile Include="ParserCore\2chb\2chbParser.cs" />
     <Compile Include="ParserCore\2chb\2chbSettings.cs" />

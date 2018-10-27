@@ -35,7 +35,7 @@ namespace TelegramBot.ParserCore.Porn   //будем брать NSFW с reddit.c
             //}
             
             List<string> reddit_uri = new List<string>();   //список uri на NSFW видео
-            string giant = "";
+            //string giant = "";
             var reddit = new RedditSharp.Reddit();
             List<string> lines = ReadingTextFile.GetLinesOfTextFile();     //читаем из файла логин и пароль для reddit.com (безопасность, блеать :))
             var user = reddit.LogIn(lines[3], lines[4]);

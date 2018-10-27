@@ -48,11 +48,11 @@ namespace TelegramBot.ParserCore.Porn   //будем брать NSFW с reddit.c
                 {
                     reddit_uri.Add(post.Url.AbsoluteUri);
                 }
-                if (post.Url.AbsoluteUri.Contains("gfycat"))
-                {
-                    giant = post.Url.AbsoluteUri.Insert(8, "giant.");
-                    reddit_uri.Add(giant + ".mp4");
-                }
+                //if (post.Url.AbsoluteUri.Contains("gfycat"))
+                //{
+                //    giant = post.Url.AbsoluteUri.Insert(8, "giant.");
+                //    reddit_uri.Add(giant + ".mp4");
+                //}
             }
             return reddit_uri.ToArray();
         }

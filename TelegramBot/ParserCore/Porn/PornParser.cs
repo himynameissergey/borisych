@@ -42,12 +42,12 @@ namespace TelegramBot.ParserCore.Porn   //будем брать NSFW с reddit.c
             //var subreddit = reddit.GetSubreddit("/r/60fpsporn");
             var subreddit = reddit.GetSubreddit("/r/NSFW_GIF");
 
-            foreach (var post in subreddit.Hot.Take(100))
+            foreach (var post in subreddit.Hot.Take(50))
             {
-                if (post.Url.AbsoluteUri.Contains("imgur"))
-                {
+                //if (post.Url.AbsoluteUri.Contains("imgur"))
+                //{
                     reddit_uri.Add(post.Url.AbsoluteUri);
-                }
+                //}
                 //if (post.Url.AbsoluteUri.Contains("gfycat"))
                 //{
                 //    giant = post.Url.AbsoluteUri.Insert(8, "giant.");

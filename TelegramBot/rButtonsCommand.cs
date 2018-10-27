@@ -30,8 +30,8 @@ namespace TelegramBot
                 Keyboard = new[] {
                     new[] // row 1
                     {
-                        new Telegram.Bot.Types.KeyboardButton("Чпоньк"),
-                        new Telegram.Bot.Types.KeyboardButton("Жамк"),
+                        new Telegram.Bot.Types.ReplyMarkups.KeyboardButton("Чпоньк"),
+                        new Telegram.Bot.Types.ReplyMarkups.KeyboardButton("Жамк"),
                     },
                 },
                 ResizeKeyboard = true

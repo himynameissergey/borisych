@@ -7,6 +7,7 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using TelegramBot.ParserCore;
 using TelegramBot.ParserCore.Habra;
+using Telegram.Bot.Types.InputFiles;
 
 namespace TelegramBot
 {
@@ -39,7 +40,8 @@ namespace TelegramBot
             Random rnd = new Random();
             int r = rnd.Next(anekdots.Count);
             await client.SendTextMessageAsync(chatId, anekdots[r] /*+ "\n\U0001F602 \U0001F602 \U0001F602"*/); //Chat.ID Группы Брянск -156934903
-            var sticker = new FileToSend("CAADAgADZwcAAgk7OxO4xNLHTf2wfQI"); // стикер с Петросяном
+            //var sticker = new FileToSend("CAADAgADZwcAAgk7OxO4xNLHTf2wfQI"); // стикер с Петросяном
+            var sticker = new InputOnlineFile("CAADAgADZwcAAgk7OxO4xNLHTf2wfQI");
             await client.SendStickerAsync(chatId, sticker);
             Bot.ConsoleWriteLog(message);
         }

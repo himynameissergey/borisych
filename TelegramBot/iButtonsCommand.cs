@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.InlineKeyboardButtons;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TelegramBot
 {
@@ -25,8 +25,22 @@ namespace TelegramBot
         {
             var chatId = message.Chat.Id;
             var messageId = message.MessageId;
+            //var keyboard = new InlineKeyboardMarkup
+            //(
+            //    new InlineKeyboardButton[][]
+            //    {
+            //    // First row
+            //        new InlineKeyboardButton[] 
+            //        {
+            //            // First column
+            //            InlineKeyboardButton.WithCallbackData("one","callback1"),
+            //            // Second column
+            //            InlineKeyboardButton.WithCallbackData("two","callback2"),
+            //        },
+            //    }
+            //);
             var keyboard = new Telegram.Bot.Types.ReplyMarkups.InlineKeyboardMarkup(new[]
-            {
+{
                 new [] // first row
                 {
                     InlineKeyboardButton.WithUrl("1.1","www.google.com"),
@@ -38,6 +52,7 @@ namespace TelegramBot
                     InlineKeyboardButton.WithCallbackData("2.2"),
                 }
             });
+
             await client.SendTextMessageAsync(chatId, "Жамкни!", replyMarkup: keyboard);
 
             client.OnCallbackQuery += async (object sender, Telegram.Bot.Args.CallbackQueryEventArgs ev) =>

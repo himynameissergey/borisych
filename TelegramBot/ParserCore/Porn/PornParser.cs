@@ -42,7 +42,7 @@ namespace TelegramBot.ParserCore.Porn   //будем брать NSFW с reddit.c
             //var subreddit = reddit.GetSubreddit("/r/60fpsporn");
             var subreddit = reddit.GetSubreddit("/r/NSFW_GIF");
 
-            foreach (var post in subreddit.Hot.Take(50))
+            foreach (var post in subreddit.Hot.Take(100))
             {
                 if (post.Url.AbsoluteUri.Contains("imgur"))
                 {

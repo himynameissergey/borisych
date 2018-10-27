@@ -98,6 +98,8 @@
     <Compile Include="ParserCore\ParserWorker.cs" />
     <Compile Include="ParserCore\Pen\PenParser.cs" />
     <Compile Include="ParserCore\Pen\PenSettings.cs" />
+    <Compile Include="ParserCore\Photo\PhotoParser.cs" />
+    <Compile Include="ParserCore\Photo\PhotoSettings.cs" />
     <Compile Include="ParserCore\Pikabu\PikabuParser.cs" />
     <Compile Include="ParserCore\Pikabu\PikabuSettings.cs" />
     <Compile Include="ParserCore\Porn\PornParser.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="ParserCore\vk\vkParser.cs" />
     <Compile Include="ParserCore\vk\vkSetings.cs" />
     <Compile Include="PenCommand.cs" />
+    <Compile Include="PhotoCommand.cs" />
     <Compile Include="PikabuCommand.cs" />
     <Compile Include="PornCommand.cs" />
     <Compile Include="Program.cs" />

@@ -1,8 +1,8 @@
-﻿namespace TelegramBot.ParserCore.Porn
+﻿namespace TelegramBot.ParserCore.Photo
 {
-    class PornSettings : IParserSettings
+    class PhotoSettings : IParserSettings
     {
-        public PornSettings(int start, int end)
+        public PhotoSettings(int start, int end)
         {
             StartPoint = start;
             EndPoint = end;

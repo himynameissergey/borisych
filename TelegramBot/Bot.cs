@@ -37,8 +37,8 @@ namespace TelegramBot
 
             //bot = new TelegramBotClient(BotSettings.Key);
             #region Proxy
-            var proxy = new HttpToSocks5Proxy("bot.avinfo17.info", 38157);
-            //var proxy = new HttpToSocks5Proxy("lsulc.tgvpnproxy.me", 1080);
+            //var proxy = new HttpToSocks5Proxy("bot.avinfo17.info", 38157);
+            var proxy = new HttpToSocks5Proxy("46.101.240.221", 1080);
             proxy.ResolveHostnamesLocally = true; // Allows you to use proxies that are only allowing connections to Telegram
             #endregion
 
@@ -83,27 +83,27 @@ namespace TelegramBot
         /// </summary>
         public async Task RunAsync()
         {
-                int offset = 0;
-                while (true)
-                {
-                    var updates = await bot.GetUpdatesAsync(offset);
+            int offset = 0;
+            while (true)
+            {
+                var updates = await bot.GetUpdatesAsync(offset);
 
-                    foreach (var update in updates)
+                foreach (var update in updates)
+                {
+                    if (update.Message != null)
                     {
-                        if (update.Message != null)
+                        foreach (var command in commands)
                         {
-                            foreach (var command in commands)
+                            if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))
                             {
-                                if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))
-                                {
-                                    command.Execute(update.Message, bot);
-                                    break;
-                                }
+                                command.Execute(update.Message, bot);
+                                break;
                             }
                         }
-                        offset = update.Id + 1;
                     }
+                    offset = update.Id + 1;
                 }
+            }
         }
     }
 }

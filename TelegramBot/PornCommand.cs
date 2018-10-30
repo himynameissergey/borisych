@@ -43,7 +43,7 @@ namespace TelegramBot
                 TimeSpan begin = new TimeSpan(09, 00, 00);
                 TimeSpan end = new TimeSpan(18, 00, 00);
                 // показываем porn только с 18:00 до 09:00
-                if !(DateTime.Now.TimeOfDay >= begin && DateTime.Now.TimeOfDay < end)
+                if ( !(DateTime.Now.TimeOfDay >= begin && DateTime.Now.TimeOfDay < end) )
                 {
                     await client.SendTextMessageAsync(chatId, anekdots[r]); //Chat.ID Группы Брянск -156934903
                 }

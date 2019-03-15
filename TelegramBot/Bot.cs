@@ -35,13 +35,14 @@ namespace TelegramBot
         {
             List<string> lines = ReadingTextFile.GetLinesOfTextFile();
 
-            //bot = new TelegramBotClient(BotSettings.Key);
+            bot = new TelegramBotClient(BotSettings.Key);
             #region Proxy
             //var proxy = new HttpToSocks5Proxy("bot.avinfo17.info", 38157);
-            var proxy = new HttpToSocks5Proxy("ftfkr.teletype.live", 1080, "telegram", "telegram");
+            var proxy = new HttpToSocks5Proxy("18.231.190.109", 8080);
             proxy.ResolveHostnamesLocally = true; // Allows you to use proxies that are only allowing connections to Telegram
             #endregion
 
+            //bot = new TelegramBotClient(lines[1]);
             bot = new TelegramBotClient(lines[1], proxy);
             commands.Add(new HelloCommand());
             commands.Add(new HelpCommand());
@@ -56,7 +57,7 @@ namespace TelegramBot
             commands.Add(new PornCommand());
             commands.Add(new RedditCommand());
             commands.Add(new KMPCommand());
-            //commands.Add(new ArhivachCommand());
+            commands.Add(new ArhivachCommand());
             commands.Add(new vkCommand());
             commands.Add(new PenCommand());
             commands.Add(new _9gagCommand());

@@ -38,12 +38,12 @@ namespace TelegramBot
             bot = new TelegramBotClient(BotSettings.Key);
             #region Proxy
             //var proxy = new HttpToSocks5Proxy("bot.avinfo17.info", 38157);
-            var proxy = new HttpToSocks5Proxy("18.231.190.109", 8080);
-            proxy.ResolveHostnamesLocally = true; // Allows you to use proxies that are only allowing connections to Telegram
+            //var proxy = new HttpToSocks5Proxy("18.231.190.109", 8080);
+            //proxy.ResolveHostnamesLocally = true; // Allows you to use proxies that are only allowing connections to Telegram
             #endregion
 
             //bot = new TelegramBotClient(lines[1]);
-            bot = new TelegramBotClient(lines[1], proxy);
+            bot = new TelegramBotClient(lines[1]/*, proxy*/);
             commands.Add(new HelloCommand());
             commands.Add(new HelpCommand());
             commands.Add(new BredCommand());

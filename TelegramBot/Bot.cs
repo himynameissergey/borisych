@@ -49,21 +49,21 @@ namespace TelegramBot
             commands.Add(new BredCommand());
             commands.Add(new TalkCommand());
             commands.Add(new AnekCommand());
-            commands.Add(new ParseCommand());
+            //commands.Add(new ParseCommand()); //stavklass.ru
             commands.Add(new LentaCommand());
             commands.Add(new PikabuCommand());
             commands.Add(new _2chnCommand());
             commands.Add(new _2chbCommand());
-            commands.Add(new PornCommand());
-            commands.Add(new RedditCommand());
+            //commands.Add(new PornCommand());
+            //commands.Add(new RedditCommand());
             commands.Add(new KMPCommand());
             commands.Add(new ArhivachCommand());
-            commands.Add(new vkCommand());
+            //commands.Add(new vkCommand());
             commands.Add(new PenCommand());
-            commands.Add(new _9gagCommand());
+            //commands.Add(new _9gagCommand());
             commands.Add(new BashCommand());
             commands.Add(new MsgCommand());
-            commands.Add(new PhotoCommand());
+            //commands.Add(new PhotoCommand());
 
             //commands.Add(new iButtonsCommand());
             //commands.Add(new rButtonsCommand());

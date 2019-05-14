@@ -19,7 +19,7 @@ namespace TelegramBot.ParserCore.Bash
             //var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("story__title-link")).OfType<IHtmlAnchorElement>(); //pikabu
             //var items = document.All.Where(item => item.LocalName != null && item.LocalName.Contains("img")).OfType<IHtmlImageElement>(); //stavklass
             //var items = document.QuerySelectorAll("p").Where(item => item.ClassName != null && item.ClassName.Contains("title")).OfType<IHtmlAnchorElement>(); //reddit
-            var items = document.QuerySelectorAll("div").Where(item => item.ClassName != null && item.ClassName.Contains("text")); //bash
+            var items = document.QuerySelectorAll("div").Where(item => item.ClassName != null && item.ClassName.Contains("quote__body")); //bash
             foreach (var item in items)
             {
                 //list.Add(item.Source); //stavklass, pornpics

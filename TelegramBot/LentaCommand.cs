@@ -35,7 +35,7 @@ namespace TelegramBot
             //parser.OnNewData += Parser_OnNewData;
             //parser.Settings = new HabraSettings(1, 1);  // первая страница сайта
             //parser.Start();
-
+            
             Random rnd = new Random();
             int r = rnd.Next(anekdots.Count);
             await client.SendTextMessageAsync(chatId, anekdots[r]); //Chat.ID Группы Брянск -156934903

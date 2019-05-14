@@ -35,7 +35,7 @@ namespace TelegramBot
         {
             List<string> lines = ReadingTextFile.GetLinesOfTextFile();
 
-            bot = new TelegramBotClient(BotSettings.Key);
+            //bot = new TelegramBotClient(BotSettings.Key);
             #region Proxy
             //var proxy = new HttpToSocks5Proxy("bot.avinfo17.info", 38157);
             //var proxy = new HttpToSocks5Proxy("18.231.190.109", 8080);

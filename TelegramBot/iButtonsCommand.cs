@@ -43,7 +43,7 @@ namespace TelegramBot
 {
                 new [] // first row
                 {
-                    InlineKeyboardButton.WithUrl("1.1","www.google.com"),
+                    InlineKeyboardButton.WithUrl("1.1","www.pornhub.com"),
                     InlineKeyboardButton.WithCallbackData("1.2", "callback1"),
                 },
                 new [] // second row

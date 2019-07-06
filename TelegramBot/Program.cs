@@ -50,15 +50,15 @@ namespace TelegramBot
             #endregion
 
             #region OkParser           
-            //ParserWorker<string[]> OkParser = new ParserWorker<string[]>(new HabraParser());
-            //OkParser.OnCompleted += ParseCommand.Parser_OnCompleted;
-            //OkParser.OnNewData += ParseCommand.Parser_OnNewData;
-            //OkParser.Settings = new HabraSettings(1, 1);  // первая страница сайта
-            ////parser.Start();   //при работе с таймером эту строчку закомментируем
+            ParserWorker<string[]> OkParser = new ParserWorker<string[]>(new HabraParser());
+            OkParser.OnCompleted += ParseCommand.Parser_OnCompleted;
+            OkParser.OnNewData += ParseCommand.Parser_OnNewData;
+            OkParser.Settings = new HabraSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
 
-            //TimerCallback OkTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
-            //// создаем таймер
-            //Timer OkTimer = new Timer(OkTCB, OkParser, 0, 3600000);   //будем получать новости каждый час
+            TimerCallback OkTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer OkTimer = new Timer(OkTCB, OkParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             #region LentaParser   
@@ -110,27 +110,27 @@ namespace TelegramBot
             #endregion
 
             #region PornParser   
-            //ParserWorker<string[]> PornParser = new ParserWorker<string[]>(new PornParser());
-            //PornParser.OnCompleted += PornCommand.Parser_OnCompleted;
-            //PornParser.OnNewData += PornCommand.Parser_OnNewData;
-            //PornParser.Settings = new PornSettings(1, 1);  // первая страница сайта
-            ////parser.Start();   //при работе с таймером эту строчку закомментируем
+            ParserWorker<string[]> PornParser = new ParserWorker<string[]>(new PornParser());
+            PornParser.OnCompleted += PornCommand.Parser_OnCompleted;
+            PornParser.OnNewData += PornCommand.Parser_OnNewData;
+            PornParser.Settings = new PornSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
 
-            //TimerCallback PornTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
-            //// создаем таймер
-            //Timer PornTimer = new Timer(PornTCB, PornParser, 0, 3600000);   //будем получать новости каждый час
+            TimerCallback PornTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer PornTimer = new Timer(PornTCB, PornParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             #region RedditParser           
-            //ParserWorker<string[]> RedditParser = new ParserWorker<string[]>(new RedditParser());
-            //RedditParser.OnCompleted += RedditCommand.Parser_OnCompleted;
-            //RedditParser.OnNewData += RedditCommand.Parser_OnNewData;
-            //RedditParser.Settings = new RedditSettings(1, 1);  // первая страница сайта
-            ////parser.Start();   //при работе с таймером эту строчку закомментируем
+            ParserWorker<string[]> RedditParser = new ParserWorker<string[]>(new RedditParser());
+            RedditParser.OnCompleted += RedditCommand.Parser_OnCompleted;
+            RedditParser.OnNewData += RedditCommand.Parser_OnNewData;
+            RedditParser.Settings = new RedditSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
 
-            //TimerCallback RedditTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
-            //// создаем таймер
-            //Timer RedditTimer = new Timer(RedditTCB, RedditParser, 0, 3600000);   //будем получать новости каждый час
+            TimerCallback RedditTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer RedditTimer = new Timer(RedditTCB, RedditParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             #region KMPParser           
@@ -158,15 +158,15 @@ namespace TelegramBot
             #endregion  
 
             #region vkParser           
-            //ParserWorker<string[]> vkParser = new ParserWorker<string[]>(new vkParser());
-            //vkParser.OnCompleted += vkCommand.Parser_OnCompleted;
-            //vkParser.OnNewData += vkCommand.Parser_OnNewData;
-            //vkParser.Settings = new vkSettings(1, 1);  // первая страница сайта
-            ////parser.Start();   //при работе с таймером эту строчку закомментируем
+            ParserWorker<string[]> vkParser = new ParserWorker<string[]>(new vkParser());
+            vkParser.OnCompleted += vkCommand.Parser_OnCompleted;
+            vkParser.OnNewData += vkCommand.Parser_OnNewData;
+            vkParser.Settings = new vkSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
 
-            //TimerCallback vkTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
-            //// создаем таймер
-            //Timer vkTimer = new Timer(vkTCB, vkParser, 0, 3600000);   //будем получать новости каждый час
+            TimerCallback vkTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer vkTimer = new Timer(vkTCB, vkParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             #region PenParser           
@@ -182,15 +182,15 @@ namespace TelegramBot
             #endregion
 
             #region _9gagParser           
-            //ParserWorker<string[]> _9gagParser = new ParserWorker<string[]>(new _9gagParser());
-            //_9gagParser.OnCompleted += _9gagCommand.Parser_OnCompleted;
-            //_9gagParser.OnNewData += _9gagCommand.Parser_OnNewData;
-            //_9gagParser.Settings = new _9gagSettings(1, 1);  // первая страница сайта
-            ////parser.Start();   //при работе с таймером эту строчку закомментируем
+            ParserWorker<string[]> _9gagParser = new ParserWorker<string[]>(new _9gagParser());
+            _9gagParser.OnCompleted += _9gagCommand.Parser_OnCompleted;
+            _9gagParser.OnNewData += _9gagCommand.Parser_OnNewData;
+            _9gagParser.Settings = new _9gagSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
 
-            //TimerCallback _9gagTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
-            //// создаем таймер
-            //Timer _9gagTimer = new Timer(_9gagTCB, _9gagParser, 0, 3600000);   //будем получать новости каждый час
+            TimerCallback _9gagTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer _9gagTimer = new Timer(_9gagTCB, _9gagParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             #region BashParser           
@@ -206,15 +206,15 @@ namespace TelegramBot
             #endregion
 
             #region PhotoParser   
-            //ParserWorker<string[]> PhotoParser = new ParserWorker<string[]>(new PhotoParser());
-            //PhotoParser.OnCompleted += PhotoCommand.Parser_OnCompleted;
-            //PhotoParser.OnNewData += PhotoCommand.Parser_OnNewData;
-            //PhotoParser.Settings = new PhotoSettings(1, 1);  // первая страница сайта
-            ////parser.Start();   //при работе с таймером эту строчку закомментируем
+            ParserWorker<string[]> PhotoParser = new ParserWorker<string[]>(new PhotoParser());
+            PhotoParser.OnCompleted += PhotoCommand.Parser_OnCompleted;
+            PhotoParser.OnNewData += PhotoCommand.Parser_OnNewData;
+            PhotoParser.Settings = new PhotoSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
 
-            //TimerCallback PhotoTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
-            //// создаем таймер
-            //Timer PhotoTimer = new Timer(PhotoTCB, PhotoParser, 0, 3600000);   //будем получать новости каждый час
+            TimerCallback PhotoTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer PhotoTimer = new Timer(PhotoTCB, PhotoParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова

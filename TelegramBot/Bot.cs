@@ -93,6 +93,9 @@ namespace TelegramBot
                 {
                     if (update.Message != null)
                     {
+                        // проверка: если в чате есть боты с такими же командами, как и у Борисыча (например /help)
+                        // то выполняем только команды Борисыча (то есть если в команде содержится "@borisychbot")
+                        update.Message.Text = update.Message.Text.Contains("@") ? (update.Message.Text.ToLower().Contains("@borisychbot") ? update.Message.Text.Substring(0, update.Message.Text.IndexOf('@')) : "") : update.Message.Text;
                         foreach (var command in commands)
                         {
                             if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))

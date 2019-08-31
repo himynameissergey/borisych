@@ -24,7 +24,7 @@ namespace TelegramBot
             long chatId = message.Chat.Id;
             int messageId = message.MessageId;
             
-            message.Text = message.Text.Contains("@") ? (message.Text.ToLower().Contains("@borisychbot") ? message.Text.Substring(0, message.Text.IndexOf('@')) : "") : message.Text;   ////Wlad
+            message.Text = message.Text.Contains("@") ? (message.Text.ToLower().Contains("@borisychbot") ? message.Text.Substring(0, message.Text.IndexOf('@')) : "") : message.Text;   //Wlad
 
             await client.SendTextMessageAsync(chatId, "Список всех команд:\n" + string.Join("\n", Bot.GetCommands.Select(cmd => cmd.Name)));
             Bot.ConsoleWriteLog(message);

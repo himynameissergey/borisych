@@ -19,21 +19,21 @@ namespace TelegramBot.ParserCore.Porn   //будем брать NSFW с reddit.c
             //var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("story__title-link")).OfType<IHtmlAnchorElement>(); //pikabu
             //var items = document.All.Where(item => item.LocalName != null && item.LocalName.Contains("img")).OfType<IHtmlImageElement>(); //stavklass, pornpics
             //var items = document.QuerySelectorAll("div").Where(item => item.ClassName == "thumb_container").Select(x => x.Attributes["data-previewvideo"].Value); //xhamster
-            //var items = document.QuerySelectorAll("video").Where(item => item.ClassName == "gifVideo js-gifVideo").Select(x => x.Attributes["data-mp4"].Value); //pornhub
+            var items = document.QuerySelectorAll("source").Where(item => item.Attributes["src"].Value.Contains(".mp4")).Select(x => x.Attributes["src"].Value); //reddit - не работает
             //var items = document.QuerySelectorAll("a").Where(item => item.Attributes["href"].Value.Contains("gfycatporn.com/oilporn")).Select(x => x.Attributes["href"].Value); //gfycatporn
             //foreach (var item in items)
             //{
-                //if (item.Source.Length < 100)
-                //{
-                //    list.Add(item.Source); //stavklass, pornpics
-                //}
-             //   list.Add(item); //xhamster
-                //list.Add(item.TextContent); //habr, nekdo
-                //list.Add("https://2ch.hk" + item.PathName);   //2ch
-                //list.Add("https://m.lenta.ru" + item.PathName);	//lenta.ru
-                //list.Add("https://pikabu.ru" + item.PathName);	//pikabu
+            //    if (item.Source.Length < 100)
+            //    {
+            //        list.Add(item.Source); //stavklass, pornpics
+            //    }
+            //    list.Add(item); //xhamster
+            //    list.Add(item.TextContent); //habr, nekdo
+            //    list.Add("https://2ch.hk" + item.PathName);   //2ch
+            //    list.Add("https://m.lenta.ru" + item.PathName); //lenta.ru
+            //    list.Add("https://pikabu.ru" + item.PathName);	//pikabu
             //}
-            
+
             List<string> reddit_uri = new List<string>();   //список uri на NSFW видео
             //string giant = "";
             var reddit = new RedditSharp.Reddit();
@@ -46,7 +46,8 @@ namespace TelegramBot.ParserCore.Porn   //будем брать NSFW с reddit.c
             {
                 //if (post.Url.AbsoluteUri.Contains("imgur"))
                 //{
-                    reddit_uri.Add(post.Url.AbsoluteUri);
+                reddit_uri.Add(post.Url.AbsoluteUri);
+
                 //}
                 //if (post.Url.AbsoluteUri.Contains("gfycat"))
                 //{

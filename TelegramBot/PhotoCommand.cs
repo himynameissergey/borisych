@@ -40,7 +40,7 @@ namespace TelegramBot
             int r = rnd.Next(anekdots.Count);
             try
             {
-                await client.SendTextMessageAsync(chatId, anekdots[r]); //Chat.ID Группы Брянск -156934903
+                await client.SendTextMessageAsync(chatId, anekdots[r], disableWebPagePreview: false); //Chat.ID Группы Брянск -156934903
             }
             catch (Exception ex)
             {

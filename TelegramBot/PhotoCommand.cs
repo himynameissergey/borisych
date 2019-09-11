@@ -41,7 +41,7 @@ namespace TelegramBot
             try
             {
                 //await client.SendTextMessageAsync(chatId, anekdots[r], disableWebPagePreview: false); //Chat.ID Группы Брянск -1001315811997
-                await client.SendPhotoAsync(chatId, anekdots[r], "Фоточка");
+                await client.SendPhotoAsync(chatId, anekdots[r], "HiRes = "+anekdots[r]);
             }
             catch (Exception ex)
             {

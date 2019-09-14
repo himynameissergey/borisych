@@ -40,16 +40,20 @@ namespace TelegramBot
             int r = rnd.Next(anekdots.Count);
             try
             {
-                TimeSpan begin = new TimeSpan(09, 00, 00);
-                TimeSpan end = new TimeSpan(18, 00, 00);
+                //TimeSpan begin = new TimeSpan(09, 00, 00);
+                //TimeSpan end = new TimeSpan(18, 00, 00);
+                TimeSpan begin = new TimeSpan(18, 00, 00);
+                TimeSpan end = new TimeSpan(23, 00, 00);
+
                 // показываем porn только с 18:00 до 09:00
                 if ( !(DateTime.Now.TimeOfDay >= begin && DateTime.Now.TimeOfDay < end) )
                 {
-                    await client.SendTextMessageAsync(chatId, anekdots[r]); //Chat.ID Группы Брянск -156934903
+                    await client.SendTextMessageAsync(chatId, anekdots[r]); //Chat.ID Группы Брянск -1001315811997
+                    //await client.SendVideoAsync(chatId, anekdots[r]);
                 }
                 else
                 {
-                    await client.SendTextMessageAsync(chatId, @"Показываем только с 18:00 до 09:00" + Environment.NewLine + @"¯\_(ツ)_/¯" + Environment.NewLine + @"Во всем виноват @penitt0");
+                    await client.SendTextMessageAsync(chatId, @"С 18:00 до 23:00 не показываем!" + Environment.NewLine + @"¯\_(ツ)_/¯" + Environment.NewLine + @"Во всем виноват @penitt0");
                 }
             }
             catch (Exception ex)

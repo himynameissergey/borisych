@@ -39,8 +39,8 @@ namespace TelegramBot.ParserCore.Porn   //будем брать NSFW с reddit.c
             var reddit = new RedditSharp.Reddit();
             List<string> lines = ReadingTextFile.GetLinesOfTextFile();     //читаем из файла логин и пароль для reddit.com (безопасность, блеать :))
             var user = reddit.LogIn(lines[3], lines[4]);
-            //var subreddit = reddit.GetSubreddit("/r/60fpsporn");
-            var subreddit = reddit.GetSubreddit("/r/NSFW_GIF");
+            var subreddit = reddit.GetSubreddit("/r/Lesbian_gifs");
+            //var subreddit = reddit.GetSubreddit("/r/NSFW_GIF");
 
             foreach (var post in subreddit.Hot.Take(50))
             {

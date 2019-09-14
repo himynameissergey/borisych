@@ -102,7 +102,8 @@ namespace TelegramBot
 
                         foreach (var command in commands)
                         {
-                            if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))
+                            //if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))
+                            if (update.Message.Text != null && (update.Message.Text.ToLower() == command.Name))
                             {
                                 command.Execute(update.Message, bot);
                                 break;

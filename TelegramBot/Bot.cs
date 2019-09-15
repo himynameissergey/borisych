@@ -84,7 +84,7 @@ namespace TelegramBot
         /// </summary>
         public async Task RunAsync()
         {
-            int offset = -1;
+            int offset = 0;
             while (true)
             {
                 var updates = await bot.GetUpdatesAsync(offset);
@@ -101,8 +101,8 @@ namespace TelegramBot
 
                         foreach (var command in commands)
                         {
-                            //if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))
-                            if (update.Message.Text != null && (update.Message.Text.ToLower() == command.Name))
+                            if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))
+                            //if (update.Message.Text != null && (update.Message.Text.ToLower() == command.Name))
                             {
                                 command.Execute(update.Message, bot);
                                 break;

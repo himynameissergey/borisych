@@ -16,7 +16,8 @@ namespace TelegramBot
         public string Name { get; set; } = "/msg";
         public async void Execute(Message message, TelegramBotClient client)
         {
-            var chatId = -1001315811997; //-1001315811997 - ChatId супергруппы Брянск    //message.Chat.Id; 
+            var chatId = -1001315811997; //-1001315811997 - ChatId супергруппы Брянск  -1001411008326 - ChatId супергруппы Металлург  //message.Chat.Id; 
+
             //var messageId = message.MessageId;
             //DateTime now = DateTime.Now;
             string say = message.Text.Substring(5); //обрезаем первые 5 символов (/msg )

@@ -84,21 +84,20 @@ namespace TelegramBot
         /// </summary>
         public async Task RunAsync()
         {
-            int offset = 0;
+            int offset = -1;
             while (true)
             {
                 var updates = await bot.GetUpdatesAsync(offset);
 
                 foreach (var update in updates)
                 {
-                    
                     if (update.Message != null)
                     {
                         // проверка: если в чате есть боты с такими же командами, как и у Борисыча (например /help)
                         // то выполняем только команды Борисыча (то есть если в команде содержится "@borisychbot")
                         //update.Message.Text = "fuck";
                         //update.Message.Chat.Id = 201071894;   //my telegram ID
-                        //update.Message.Text = update.Message.Text.Contains("@") ? (update.Message.Text.ToLower().Contains("@borisychbot") ? update.Message.Text.Substring(0, update.Message.Text.IndexOf('@')) : "") : update.Message.Text;
+                        update.Message.Text = update.Message.Text.Contains("@") ? (update.Message.Text.ToLower().Contains("@borisychbot") ? update.Message.Text.Substring(0, update.Message.Text.IndexOf('@')) : "") : update.Message.Text;
 
                         foreach (var command in commands)
                         {

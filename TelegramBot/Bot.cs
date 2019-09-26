@@ -97,7 +97,7 @@ namespace TelegramBot
                         // то выполняем только команды Борисыча (то есть если в команде содержится "@borisychbot")
                         //update.Message.Text = "fuck";
                         //update.Message.Chat.Id = 201071894;   //my telegram ID
-                        update.Message.Text = update.Message.Text.Contains("@") ? (update.Message.Text.ToLower().Contains("@borisychbot") ? update.Message.Text.Substring(0, update.Message.Text.IndexOf('@')) : "") : update.Message.Text;
+                        //update.Message.Text = update.Message.Text.Contains("@") ? (update.Message.Text.ToLower().Contains("@borisychbot") ? update.Message.Text.Substring(0, update.Message.Text.IndexOf('@')) : "") : update.Message.Text;
 
                         foreach (var command in commands)
                         {

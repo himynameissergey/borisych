@@ -101,8 +101,7 @@ namespace TelegramBot
                         {
                             foreach (var command in commands)
                             {
-                                Match MatchExpression = new Regex("^" + command.Name + @"[\s\S]*").Match(update.Message.Text);
-                                if (update.Message.Text != null && MatchExpression.Success)
+                                if (update.Message.Text != null && new Regex("^" + command.Name + @"[\s\S]*").Match(update.Message.Text).Success)
                                 {
                                     command.Execute(update.Message, bot);
                                     break;

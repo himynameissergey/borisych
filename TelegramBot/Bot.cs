@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using System.Text.RegularExpressions;
 
 namespace TelegramBot
 {
@@ -100,7 +101,8 @@ namespace TelegramBot
                         {
                             foreach (var command in commands)
                             {
-                                if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))
+                                Match MatchExpression = new Regex("^" + command.Name + @"[\s\S]*").Match(update.Message.Text);
+                                if (update.Message.Text != null && MatchExpression.Success)
                                 {
                                     command.Execute(update.Message, bot);
                                     break;

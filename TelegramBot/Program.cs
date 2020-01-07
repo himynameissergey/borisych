@@ -50,15 +50,15 @@ namespace TelegramBot
             #endregion
 
             #region OkParser           
-            ParserWorker<string[]> OkParser = new ParserWorker<string[]>(new HabraParser());
-            OkParser.OnCompleted += ParseCommand.Parser_OnCompleted;
-            OkParser.OnNewData += ParseCommand.Parser_OnNewData;
-            OkParser.Settings = new HabraSettings(1, 1);  // первая страница сайта
-            //parser.Start();   //при работе с таймером эту строчку закомментируем
+            //ParserWorker<string[]> OkParser = new ParserWorker<string[]>(new HabraParser());
+            //OkParser.OnCompleted += ParseCommand.Parser_OnCompleted;
+            //OkParser.OnNewData += ParseCommand.Parser_OnNewData;
+            //OkParser.Settings = new HabraSettings(1, 1);  // первая страница сайта
+            ////parser.Start();   //при работе с таймером эту строчку закомментируем
 
-            TimerCallback OkTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
-            // создаем таймер
-            Timer OkTimer = new Timer(OkTCB, OkParser, 0, 3600000);   //будем получать новости каждый час
+            //TimerCallback OkTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            //// создаем таймер
+            //Timer OkTimer = new Timer(OkTCB, OkParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             #region LentaParser   

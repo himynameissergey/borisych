@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using System.Text.RegularExpressions;
 
 namespace TelegramBot
 {
@@ -95,17 +96,16 @@ namespace TelegramBot
                     {
                         // проверка: если в чате есть боты с такими же командами, как и у Борисыча (например /help)
                         // то выполняем только команды Борисыча (то есть если в команде содержится "@borisychbot")
-                        //update.Message.Text = "fuck";
-                        //update.Message.Chat.Id = 201071894;   //my telegram ID
-                        //update.Message.Text = update.Message.Text.Contains("@") ? (update.Message.Text.ToLower().Contains("@borisychbot") ? update.Message.Text.Substring(0, update.Message.Text.IndexOf('@')) : "") : update.Message.Text;
-
-                        foreach (var command in commands)
+                        update.Message.Text = update.Message.Text != null ? (update.Message.Text.Contains("@") ? (update.Message.Text.ToUpper().Contains("@BORISYCHBOT") ? update.Message.Text.Substring(0, update.Message.Text.IndexOf('@')) : null) : update.Message.Text) : null;
+                        if (update.Message.Text != null)
                         {
-                            if (update.Message.Text != null && (update.Message.Text.ToLower().Contains(command.Name)))
-                            //if (update.Message.Text != null && (update.Message.Text.ToLower() == command.Name))
+                            foreach (var command in commands)
                             {
-                                command.Execute(update.Message, bot);
-                                break;
+                                if (update.Message.Text != null && new Regex("^" + command.Name + @"[\s\S]*").Match(update.Message.Text).Success)
+                                {
+                                    command.Execute(update.Message, bot);
+                                    break;
+                                }
                             }
                         }
                     }

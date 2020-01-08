@@ -21,6 +21,7 @@ using TelegramBot.ParserCore.Pen;
 using TelegramBot.ParserCore._9gag;
 using TelegramBot.ParserCore.Bash;
 using TelegramBot.ParserCore.Photo;
+using TelegramBot.ParserCore.BryanskToday;
 
 namespace TelegramBot
 {
@@ -215,6 +216,18 @@ namespace TelegramBot
             TimerCallback PhotoTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
             // создаем таймер
             Timer PhotoTimer = new Timer(PhotoTCB, PhotoParser, 0, 3600000);   //будем получать новости каждый час
+            #endregion
+
+            #region BTParser   
+            ParserWorker<string[]> BTParser = new ParserWorker<string[]>(new BTParser());
+            BTParser.OnCompleted += BTCommand.Parser_OnCompleted;
+            BTParser.OnNewData += BTCommand.Parser_OnNewData;
+            BTParser.Settings = new BTSettings(1, 1);  // первая страница сайта
+            //parser.Start();   //при работе с таймером эту строчку закомментируем
+
+            TimerCallback BTTCB = new TimerCallback(GetNewsUpdate);	// устанавливаем метод обратного вызова
+            // создаем таймер
+            Timer BTTimer = new Timer(BTTCB, BTParser, 0, 3600000);   //будем получать новости каждый час
             #endregion
 
             //TimerCallback tcb2 = new TimerCallback(GetLentaNews);	// устанавливаем метод обратного вызова

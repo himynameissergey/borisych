@@ -66,6 +66,7 @@
     <Compile Include="Bot.cs" />
     <Compile Include="BotSettings.cs" />
     <Compile Include="BredCommand.cs" />
+    <Compile Include="BTCommand.cs" />
     <Compile Include="HelloCommand.cs" />
     <Compile Include="HelpCommand.cs" />
     <Compile Include="iButtonsCommand.cs" />
@@ -86,6 +87,8 @@
     <Compile Include="ParserCore\Arhivach\ArhivachSettings.cs" />
     <Compile Include="ParserCore\Bash\BashParser.cs" />
     <Compile Include="ParserCore\Bash\BashSettings.cs" />
+    <Compile Include="ParserCore\BryanskToday\BTParser.cs" />
+    <Compile Include="ParserCore\BryanskToday\BTSettings.cs" />
     <Compile Include="ParserCore\Habra\HabraParser.cs" />
     <Compile Include="ParserCore\Habra\HabraSettings.cs" />
     <Compile Include="ParserCore\HtmlLoader.cs" />

@@ -65,6 +65,7 @@ namespace TelegramBot
             commands.Add(new BashCommand());
             commands.Add(new MsgCommand());
             commands.Add(new PhotoCommand());
+            commands.Add(new BTCommand());
 
             //commands.Add(new iButtonsCommand());
             //commands.Add(new rButtonsCommand());

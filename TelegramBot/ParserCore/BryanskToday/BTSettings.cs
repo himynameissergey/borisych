@@ -10,7 +10,7 @@
         //public string BaseUrl { get; set; } = "https://habrahabr.ru";
         //public string BaseUrl { get; set; } = "https://nekdo.ru";
         //public string BaseUrl { get; set; } = "https://2ch.hk/news/";
-        public string BaseUrl { get; set; } = "https://bryansktoday.ru";
+        public string BaseUrl { get; set; } = "https://bryansktoday.ru/incidents";
         //public string BaseUrl { get; set; } = "https://pikabu.ru/hot";
         //public string BaseUrl { get; set; } = "http://stavklass.ru/images";
         //public string Prefix { get; set; } = "page{CurrentId}";   //habr

@@ -10,12 +10,12 @@ using TelegramBot.ParserCore.Habra;
 
 namespace TelegramBot
 {
-    class _9gagCommand : ICommand
+    class GorodCommand : ICommand
     {
         /// <summary>
         /// Имя команды
         /// </summary>
-        public string Name { get; set; } = "/sex";
+        public string Name { get; set; } = "/gorod";
         public int CountArgs { get; set; } = 0;
 
         //ParserWorker<string[]> parser;
@@ -38,37 +38,17 @@ namespace TelegramBot
 
             Random rnd = new Random();
             int r = rnd.Next(anekdots.Count);
-            try
-            {
-                //TimeSpan begin = new TimeSpan(09, 00, 00);
-                //TimeSpan end = new TimeSpan(18, 00, 00);
-                TimeSpan begin = new TimeSpan(18, 00, 00);
-                TimeSpan end = new TimeSpan(23, 00, 00);
-                // не показываем с 18:00 до 23:00
-                if (!(DateTime.Now.TimeOfDay >= begin && DateTime.Now.TimeOfDay < end))
-                {
-                    await client.SendTextMessageAsync(chatId, anekdots[r]); //Chat.ID Группы Брянск -156934903
-                    //await client.SendAnimationAsync(chatId, anekdots[r]);
-                }
-                else
-                {
-                    await client.SendTextMessageAsync(chatId, @"С 18:00 до 23:00 не показываем!" + Environment.NewLine + @"¯\_(ツ)_/¯" + Environment.NewLine + @"Во всем виноват @penitt0");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            await client.SendTextMessageAsync(chatId, anekdots[r]);
             Bot.ConsoleWriteLog(message);
         }
         public async void OnError(Message message, TelegramBotClient client)
         {
-            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/9gag"" ");
+            await client.SendTextMessageAsync(message.Chat.Id, @"Введите ""/gorod"" ");
             Bot.ConsoleWriteLog(message);
         }
         public static void Parser_OnCompleted(object obj)
         {
-            Console.WriteLine("\nПарсер 9gag.com отработал!\n");
+            Console.WriteLine("\nПарсер gorod-tv.com отработал!\n");
         }
         public static void Parser_OnNewData(object arg1, string[] arg2)
         {

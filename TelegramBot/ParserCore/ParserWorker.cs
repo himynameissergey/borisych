@@ -76,11 +76,17 @@ namespace TelegramBot.ParserCore
                     OnCompleted?.Invoke(this);
                     return;
                 }
-                var source = await loader.GetSourceByPageId(i);
-                var domParser = new HtmlParser();
-                var document = await domParser.ParseAsync(source);
-                var result = parser.Parse(document);
-                OnNewData?.Invoke(this, result);
+                try
+                {
+                    var source = await loader.GetSourceByPageId(i);
+                    var domParser = new HtmlParser();
+                    var document = await domParser.ParseAsync(source);
+                    var result = parser.Parse(document);
+                    OnNewData?.Invoke(this, result);
+                }
+                catch (Exception e) {
+                    Console.WriteLine(e.Message);
+                }
             }
             OnCompleted?.Invoke(this);
             isActive = false;

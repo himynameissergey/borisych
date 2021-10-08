@@ -18,12 +18,19 @@ namespace TelegramBot.ParserCore._2chn
             //var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("b-list-item__link")).OfType<IHtmlAnchorElement>(); //lenta.ru
             //var items = document.QuerySelectorAll("a").Where(item => item.ClassName != null && item.ClassName.Contains("story__title-link")).OfType<IHtmlAnchorElement>(); //pikabu
             //var items = document.All.Where(item => item.LocalName != null && item.LocalName.Contains("img")).OfType<IHtmlImageElement>(); //stavklass
-            foreach (var item in items)
+            if (items?.Any() != false)  // проверка на пустой items (если сайт не распарсился)
             {
-                //list.Add(item.Source); //habr, nekdo, stavklass
-                list.Add("https://2ch.hk" + item.Substring(9, item.Length - 20));   //2ch - вычленим строку с URL
-                //list.Add("https://m.lenta.ru" + item.PathName);	//lenta.ru
-                //list.Add("https://pikabu.ru" + item.PathName);	//pikabu
+                foreach (var item in items)
+                {
+                    //list.Add(item.Source); //habr, nekdo, stavklass
+                    list.Add("https://2ch.hk" + item.Substring(9, item.Length - 20));   //2ch - вычленим строку с URL
+                                                                                        //list.Add("https://m.lenta.ru" + item.PathName);	//lenta.ru
+                                                                                        //list.Add("https://pikabu.ru" + item.PathName);	//pikabu
+                }
+            }
+            else
+            {
+                list.Add("https://2ch.hk/n/ не распарсился. Проверь ASPNetTelegramBot.Models.ParserCore._2chn._2chnParser.cs");
             }
             return list.ToArray();
         }

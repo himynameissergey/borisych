@@ -39,19 +39,20 @@ namespace TelegramBot.ParserCore.Reddit
             List<string> lines = ReadingTextFile.GetLinesOfTextFile();     //читаем из файла логин и пароль для reddit.com (безопасность, блеать :))
             var user = reddit.LogIn(lines[3], lines[4]);
             //var subreddit = reddit.GetSubreddit("/r/60fpsporn");
-            var subreddit = reddit.GetSubreddit("/r/gifs");
+            var subreddit = reddit.GetSubreddit("/r/gif");
 
             foreach (var post in subreddit.Hot.Take(50))
             {
-                if (post.Url.AbsoluteUri.Contains(".gif"))
-                {
+                //if (post.Url.AbsoluteUri.Contains(".mp4"))
+                //{
                     if (post.Url.AbsoluteUri.Contains(".gifv"))
                     {
                         reddit_uri.Add(post.Url.AbsoluteUri.Replace("gifv", "mp4"));
                         continue;
+                        
                     }
-                    reddit_uri.Add(post.Url.AbsoluteUri);
-                }
+                    //reddit_uri.Add(post.Url.AbsoluteUri);
+                //}
             }
             return reddit_uri.ToArray();
         }
